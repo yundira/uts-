@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Freelance | Campus Freelancer Network</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+body {
+    font-family: 'Inter', sans-serif;
+    background: #F8FAFC;
+}
+
+.sidebar {
+    transition: transform .3s ease;
+}
+
+.nav-link {
+    transition: .2s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    background: #EFF6FF;
+    color: #2563EB;
+}
+
+.service-card {
+    transition: all .25s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(15,23,42,.08);
+}
+
+.favorite.active {
+    color: #EF4444;
+}
+
+.category-btn {
+    transition: .2s ease;
+}
+
+@media(max-width:767px) {
+    .sidebar {
+        transform: translateX(-100%);
+    }
+
+    .sidebar.show {
+        transform: translateX(0);
+    }
+}
+</style>
+</head>
+
+<body class="text-slate-800">
+
+<!-- MOBILE OVERLAY -->
+<div id="overlay"
+onclick="toggleSidebar()"
+class="fixed inset-0 bg-black/40 z-40 hidden md:hidden"></div>
+
+<!-- SIDEBAR -->
+<aside id="sidebar"
+class="sidebar fixed top-0 left-0 z-50 w-64 h-screen bg-white border-r border-slate-200 flex flex-col">
+
+    <div class="h-20 flex items-center px-6 border-b border-slate-100">
+        <div class="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center text-white">
+            <i class="fa-solid fa-briefcase"></i>
+        </div>
+        <div class="ml-3">
+            <h1 class="font-extrabold text-sm">
+                Campus<span class="text-blue-600">Freelancer</span>
+            </h1>
+            <p class="text-xs text-slate-400">Student Marketplace</p>
+        </div>
+    </div>
+
+    <!-- MENU -->
+    <nav class="flex-1 px-4 py-6 overflow-y-auto">
+
+        <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider px-3 mb-3">
+            Main Menu
+        </p>
+
+        <div class="space-y-1">
+
+            <a href="dashbord.html"
+            class="nav-link flex items-center gap-3 px-3 py-3 rounded-xl text-sm text-slate-600">
+                <i class="fa-solid fa-house w-5"></i>
+                Dashboard
+            </a>
+
+            <a href="freelance.html"
+            class="nav-link active flex items-center gap-3 px-3 py-3 rounded-xl text-sm font-semibold">
+                <i class="fa-solid fa-briefcase w-5"></i>
+                Freelance
+            </a>
+
+            <a href="peta.html"
+            class="nav-link flex items-center gap-3 px-3 py-3 rounded-xl text-sm text-slate-600">
+                <i class="fa-solid fa-map-location-dot w-5"></i>
+                Peta Freelancer
+            </a>
+
+        </div>
+
+        <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider px-3 mt-8 mb-3">
+            Others
+        </p>
+
+        <div class="space-y-1">
+
+            <a href="kontak.html"
+            class="nav-link flex items-center gap-3 px-3 py-3 rounded-xl text-sm text-slate-600">
+                <i class="fa-solid fa-headset w-5"></i>
+                Kontak
+            </a>
+
+            <a href="pesan.html"
+            class="nav-link flex items-center gap-3 px-3 py-3 rounded-xl text-sm text-slate-600">
+                <i class="fa-solid fa-inbox w-5"></i>
+                Pesan Masuk
+            </a>
+
+            <a href="login.html"
+            class="nav-link flex items-center gap-3 px-3 py-3 rounded-xl text-sm text-slate-600">
+                <i class="fa-solid fa-right-from-bracket w-5"></i>
+                Keluar
+            </a>
+
+        </div>
+    </nav>
+
+    <!-- SIDEBAR BOTTOM -->
+    <div class="p-4 border-t border-slate-100">
+        <div class="bg-blue-50 rounded-xl p-4">
+            <div class="flex items-center gap-2 text-blue-700">
+                <i class="fa-solid fa-circle-info"></i>
+                <span class="text-xs font-bold">Campus Freelancer</span>
+            </div>
+            <p class="text-xs text-slate-500 mt-2 leading-relaxed">
+                Kembangkan keahlianmu dan temukan peluang baru bersama mahasiswa lainnya.
+            </p>
+        </div>
+    </div>
+</aside>
+
+<!-- MAIN -->
+<main class="md:ml-64 min-h-screen">
+
+    <!-- NAVBAR -->
+    <header class="h-20 bg-white border-b border-slate-200 flex items-center justify-between px-5 md:px-8 sticky top-0 z-30">
+
+        <div class="flex items-center gap-4">
+
+            <button onclick="toggleSidebar()" class="md:hidden text-xl text-slate-600">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <div>
+                <h2 class="font-bold text-lg">Freelance</h2>
+                <p class="text-xs text-slate-400 hidden sm:block">
+                    Jelajahi jasa mahasiswa
+                </p>
+            </div>
+        </div>
+
+        <div class="flex items-center gap-3">
+            <div class="hidden sm:block text-right">
+                <p class="text-sm font-bold">Rini Denia Putri</p>
+                <p class="text-xs text-slate-400">Mahasiswa</p>
+            </div>
+
+            <div class="w-10 h-10 bg-blue-100 text-blue-700 rounded-full flex items-center justify-center font-bold">
+                R
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTENT -->
+    <section class="p-5 md:p-8 max-w-7xl mx-auto">
+
+        <!-- INTRO -->
+        <div class="mb-7">
+            <p class="text-sm text-blue-600 font-semibold mb-2">
+                EXPLORE SERVICES
+            </p>
+
+            <h1 class="text-2xl md:text-3xl font-extrabold">
+                Temukan Jasa Terbaik untukmu
+            </h1>
+
+            <p class="text-sm text-slate-500 mt-2">
+                Jelajahi berbagai layanan kreatif dan profesional dari mahasiswa.
+            </p>
+        </div>
+
+        <!-- SEARCH -->
+        <div class="bg-gradient-to-r from-blue-700 to-blue-500 rounded-2xl p-6 md:p-8 text-white mb-8">
+
+            <h2 class="text-xl md:text-2xl font-bold">
+                Apa yang sedang kamu cari?
+            </h2>
+
+            <p class="text-sm text-blue-100 mt-2 mb-5">
+                Temukan freelancer sesuai kebutuhan proyekmu.
+            </p>
+
+            <form id="searchForm"
+            class="bg-white rounded-xl flex items-center p-2 gap-2">
+
+                <i class="fa-solid fa-magnifying-glass text-slate-400 ml-3"></i>
+
+                <input
+                type="text"
+                id="searchInput"
+                placeholder="Cari website, coding, beauty content..."
+                class="flex-1 text-sm text-slate-800 outline-none min-w-0 py-2">
+
+                <button type="submit"
+                class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-3 rounded-lg text-sm font-semibold">
+                    Cari
+                </button>
+            </form>
+        </div>
+
+        <!-- CATEGORIES -->
+        <div class="mb-8">
+
+            <div class="flex items-center justify-between mb-4">
+                <h3 class="font-bold">Kategori Jasa</h3>
+                <span class="text-xs text-slate-400">7 kategori</span>
+            </div>
+
+            <div class="flex flex-wrap gap-3">
+
+                <button onclick="setCategory('Semua',this)"
+                class="category-btn bg-blue-600 text-white px-5 py-2.5 rounded-xl text-sm font-semibold">
+                    Semua
+                </button>
+
+                <button onclick="setCategory('Web Development',this)"
+                class="category-btn bg-white border border-slate-200 px-5 py-2.5 rounded-xl text-sm font-semibold">
+                    <i class="fa-solid fa-globe mr-2"></i>Web Development
+                </button>
+
+                <button onclick="setCategory('Programming',this)"
+                class="category-btn bg-white border border-slate-200 px-5 py-2.5 rounded-xl text-sm font-semibold">
+                    <i class="fa-solid fa-code mr-2"></i>Programming
+                </button>
+
+                <button onclick="setCategory('Design',this)"
+                class="category-btn bg-white border border-slate-200 px-5 py-2.5 rounded-xl text-sm font-semibold">
+                    <i class="fa-solid fa-pen-nib mr-2"></i>Design
+                </button>
+
+                <button onclick="setCategory('Beauty & Content',this)"
+                class="category-btn bg-white border border-slate-200 px-5 py-2.5 rounded-xl text-sm font-semibold">
+                    <i class="fa-solid fa-camera mr-2"></i>Beauty & Content
+                </button>
+
+                <button onclick="setCategory('Video Editing',this)"
+                class="category-btn bg-white border border-slate-200 px-5 py-2.5 rounded-xl text-sm font-semibold">
+                    <i class="fa-solid fa-video mr-2"></i>Video Editing
+                </button>
+
+                <button onclick="setCategory('Writing',this)"
+                class="category-btn bg-white border border-slate-200 px-5 py-2.5 rounded-xl text-sm font-semibold">
+                    <i class="fa-solid fa-pen-to-square mr-2"></i>Writing
+                </button>
+
+                <button onclick="setCategory('Digital Marketing',this)"
+                class="category-btn bg-white border border-slate-200 px-5 py-2.5 rounded-xl text-sm font-semibold">
+                    <i class="fa-solid fa-bullhorn mr-2"></i>Digital Marketing
+                </button>
+
+            </div>
+        </div>
+
+        <!-- RESULT HEADER -->
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-5">
+
+            <div>
+                <h3 class="font-bold">Rekomendasi Freelancer</h3>
+                <p class="text-xs text-slate-400 mt-1" id="resultCount">
+                    Menampilkan 10 layanan
+                </p>
+            </div>
+
+            <select id="sortSelect"
+            onchange="applyFilters()"
+            class="border border-slate-200 bg-white rounded-xl px-4 py-3 text-sm outline-none">
+
+                <option value="default">Urutan Terbaru</option>
+                <option value="low">Harga Terendah</option>
+                <option value="high">Harga Tertinggi</option>
+                <option value="rating">Rating Tertinggi</option>
+
+            </select>
+        </div>
+
+        <!-- SERVICE LIST -->
+        <div id="serviceList"
+        class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5">
+        </div>
+
+        <!-- EMPTY -->
+        <div id="emptyState"
+        class="hidden bg-white border rounded-2xl p-10 text-center mt-5">
+
+            <i class="fa-solid fa-magnifying-glass text-4xl text-slate-300"></i>
+
+            <h3 class="font-bold mt-4">Jasa tidak ditemukan</h3>
+
+            <p class="text-sm text-slate-400 mt-2">
+                Coba gunakan kata kunci atau kategori lainnya.
+            </p>
+
+            <button onclick="resetFilter()"
+            class="mt-5 text-blue-600 text-sm font-semibold">
+                Reset pencarian
+            </button>
+        </div>
+
+        <footer class="text-center text-xs text-slate-400 py-10">
+            © 2026 Campus Freelancer Network.
+            Developed for UTS Pemrograman Web.
+        </footer>
+
+    </section>
+</main>
+
+<script>
+// DATA 10 FREELANCER
+const services = [
+
+{
+id:1, name:"Nadia Amalia", major:"Sistem Informasi",
+initials:"NA", color:"bg-purple-100 text-purple-700",
+title:"Desain Logo dan Branding Bisnis",
+category:"Design",
+description:"Membantu membuat logo profesional untuk bisnis, organisasi, dan usaha kecil.",
+price:50000, rating:4.9, reviews:24, status:"Tersedia"
+},
+
+{
+id:2, name:"Ahmad Fauzan", major:"Teknik Informatika",
+initials:"AF", color:"bg-blue-100 text-blue-700",
+title:"Pembuatan Website Responsif",
+category:"Web Development",
+description:"Membuat website modern yang responsif untuk berbagai perangkat.",
+price:150000, rating:4.8, reviews:18, status:"Tersedia"
+},
+
+{
+id:3, name:"Salsa Putri", major:"Sistem Informasi",
+initials:"SP", color:"bg-orange-100 text-orange-700",
+title:"Jasa Penulisan Artikel",
+category:"Writing",
+description:"Menulis artikel informatif, deskripsi produk, dan konten digital.",
+price:35000, rating:4.7, reviews:15, status:"Tersedia"
+},
+
+{
+id:4, name:"Rizky Pratama", major:"Teknik Informatika",
+initials:"RP", color:"bg-green-100 text-green-700",
+title:"Video Editing Media Sosial",
+category:"Video Editing",
+description:"Editing video pendek untuk Instagram, TikTok, dan promosi.",
+price:75000, rating:4.9, reviews:31, status:"Tersedia"
+},
+
+{
+id:5, name:"Dinda Maharani", major:"Desain Komunikasi Visual",
+initials:"DM", color:"bg-pink-100 text-pink-700",
+title:"Desain Poster dan Feed Instagram",
+category:"Design",
+description:"Desain visual kreatif untuk promosi acara dan produk.",
+price:45000, rating:4.8, reviews:20, status:"Tersedia"
+},
+
+{
+id:6, name:"Fajar Ramadhan", major:"Teknik Informatika",
+initials:"FR", color:"bg-indigo-100 text-indigo-700",
+title:"Pembuatan Database MySQL",
+category:"Programming",
+description:"Merancang database dan query SQL untuk kebutuhan proyek.",
+price:85000, rating:4.6, reviews:12, status:"Tersedia"
+},
+
+{
+id:7, name:"Aulia Safitri", major:"Ilmu Komunikasi",
+initials:"AS", color:"bg-yellow-100 text-yellow-700",
+title:"Copywriting Konten Promosi",
+category:"Writing",
+description:"Membuat teks promosi yang menarik untuk produk dan layanan.",
+price:40000, rating:4.9, reviews:27, status:"Tersedia"
+},
+
+{
+id:8, name:"Kevin Saputra", major:"Teknik Informatika",
+initials:"KS", color:"bg-cyan-100 text-cyan-700",
+title:"Editing Video Presentasi",
+category:"Video Editing",
+description:"Mengedit video presentasi dan tugas multimedia.",
+price:60000, rating:4.7, reviews:14, status:"Tersedia"
+},
+
+{
+id:9, name:"Putra Aditya", major:"Sistem Informasi",
+initials:"PA", color:"bg-blue-100 text-blue-700",
+title:"Pembuatan Website Portofolio",
+category:"Web Development",
+description:"Membuat website portofolio pribadi dengan desain modern.",
+price:150000, rating:4.9, reviews:16, status:"Tersedia"
+},
+
+{
+id:10, name:"Dimas Prakoso", major:"Teknik Informatika",
+initials:"DP", color:"bg-indigo-100 text-indigo-700",
+title:"Jasa Coding HTML, CSS dan JavaScript",
+category:"Programming",
+description:"Membantu pengembangan fitur website dan pemrograman frontend.",
+price:90000, rating:4.8, reviews:19, status:"Tersedia"
+}
+
+];
+
+// STATE
+let selectedCategory = "Semua";
+let searchKeyword = "";
+let favorites = JSON.parse(localStorage.getItem("cfFavorites") || "[]");
+
+// FORMAT RUPIAH
+function formatPrice(price) {
+    return "Rp" + price.toLocaleString("id-ID");
+}
+
+// RENDER CARD
+function renderServices(data) {
+
+    const container = document.getElementById("serviceList");
+    const empty = document.getElementById("emptyState");
+
+    container.innerHTML = "";
+
+    document.getElementById("resultCount").textContent =
+        "Menampilkan " + data.length + " dari " + services.length + " layanan";
+
+    if(data.length === 0) {
+        empty.classList.remove("hidden");
+        return;
+    }
+
+    empty.classList.add("hidden");
+
+    data.forEach(service => {
+
+        const isFavorite = favorites.includes(service.id);
+
+        const card = document.createElement("div");
+
+        card.className = "service-card bg-white rounded-2xl border border-slate-100 overflow-hidden";
+
+        card.innerHTML = `
+
+        <div class="p-5">
+
+            <div class="flex justify-between items-start mb-4">
+
+                <div class="w-12 h-12 ${service.color} rounded-xl flex items-center justify-center font-bold">
+                    ${service.initials}
+                </div>
+
+                <button onclick="toggleFavorite(${service.id})"
+                class="favorite ${isFavorite ? 'active' : 'text-slate-400'} hover:text-red-500 text-lg"
+                aria-label="Favorit">
+
+                    <i class="${isFavorite ? 'fa-solid' : 'fa-regular'} fa-heart"></i>
+
+                </button>
+
+            </div>
+
+            <div class="mb-4">
+                <span class="text-xs font-semibold bg-blue-50 text-blue-700 px-3 py-1 rounded-full">
+                    ${service.category}
+                </span>
+            </div>
+
+            <h3 class="font-bold text-slate-800 leading-snug min-h-[48px]">
+                ${service.title}
+            </h3>
+
+            <p class="text-xs text-slate-500 mt-2 leading-relaxed min-h-[40px]">
+                ${service.description}
+            </p>
+
+            <div class="flex items-center justify-between mt-4">
+
+                <div class="flex items-center gap-2">
+
+                    <div class="w-8 h-8 ${service.color} rounded-full flex items-center justify-center text-xs font-bold">
+                        ${service.initials}
+                    </div>
+
+                    <div>
+                        <p class="text-xs font-semibold">${service.name}</p>
+                        <p class="text-xs text-slate-400">${service.major}</p>
+                    </div>
+
+                </div>
+
+                <div class="text-xs text-orange-500 font-semibold">
+                    <i class="fa-solid fa-star"></i> ${service.rating}
+                </div>
+
+            </div>
+
+            <div class="border-t border-slate-100 mt-5 pt-4 flex items-center justify-between">
+
+                <div>
+                    <p class="text-xs text-slate-400">Harga mulai</p>
+                    <p class="text-base font-extrabold text-blue-600">
+                        ${formatPrice(service.price)}
+                    </p>
+                </div>
+
+                <button onclick="openDetail(${service.id})"
+                class="bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold px-4 py-3 rounded-xl">
+                    Lihat Detail
+                    <i class="fa-solid fa-arrow-right ml-1"></i>
+                </button>
+
+            </div>
+
+        </div>
+        `;
+
+        container.appendChild(card);
+
+    });
+}
+
+// SEARCH FORM
+document.getElementById("searchForm").addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    searchKeyword = document.getElementById("searchInput").value.trim().toLowerCase();
+
+    applyFilters();
+
+});
+
+// FILTER AND SORT
+function applyFilters() {
+
+    const sort = document.getElementById("sortSelect").value;
+
+    let result = services.filter(service => {
+
+        const searchableText = [
+            service.name,
+            service.title,
+            service.category,
+            service.major,
+            service.description
+        ].join(" ").toLowerCase();
+
+        const matchKeyword = searchableText.includes(searchKeyword);
+
+        const matchCategory =
+            selectedCategory === "Semua" ||
+            service.category === selectedCategory;
+
+        return matchKeyword && matchCategory;
+
+    });
+
+    if(sort === "low") {
+        result.sort((a,b) => a.price - b.price);
+    }
+
+    else if(sort === "high") {
+        result.sort((a,b) => b.price - a.price);
+    }
+
+    else if(sort === "rating") {
+        result.sort((a,b) => b.rating - a.rating);
+    }
+
+    renderServices(result);
+}
+
+// CATEGORY
+function setCategory(category, button) {
+
+    selectedCategory = category;
+
+    document.querySelectorAll(".category-btn").forEach(btn => {
+
+        btn.classList.remove("bg-blue-600","text-white");
+        btn.classList.add("bg-white","border","border-slate-200");
+
+    });
+
+    button.classList.remove("bg-white","border","border-slate-200");
+    button.classList.add("bg-blue-600","text-white");
+
+    applyFilters();
+}
+
+// FAVORITE
+function toggleFavorite(id) {
+
+    if(favorites.includes(id)) {
+        favorites = favorites.filter(item => item !== id);
+    } else {
+        favorites.push(id);
+    }
+
+    localStorage.setItem("cfFavorites", JSON.stringify(favorites));
+
+    applyFilters();
+}
+
+// DETAIL
+function openDetail(id) {
+
+    const service = services.find(item => item.id === id);
+
+    if(!service) return;
+
+    sessionStorage.setItem("selectedService", JSON.stringify(service));
+
+    window.location.href = "detail.html";
+}
+
+// RESET
+function resetFilter() {
+
+    searchKeyword = "";
+    selectedCategory = "Semua";
+
+    document.getElementById("searchInput").value = "";
+    document.getElementById("sortSelect").value = "default";
+
+    document.querySelectorAll(".category-btn").forEach(btn => {
+        btn.classList.remove("bg-blue-600","text-white");
+        btn.classList.add("bg-white","border","border-slate-200");
+    });
+
+    const firstButton = document.querySelector(".category-btn");
+
+    firstButton.classList.remove("bg-white","border","border-slate-200");
+    firstButton.classList.add("bg-blue-600","text-white");
+
+    applyFilters();
+}
+
+// SIDEBAR MOBILE
+function toggleSidebar() {
+
+    document.getElementById("sidebar").classList.toggle("show");
+    document.getElementById("overlay").classList.toggle("hidden");
+
+}
+
+// INITIAL
+renderServices(services);
+
+</script>
+
+</body>
+</html>
