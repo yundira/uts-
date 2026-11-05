@@ -833,3 +833,12 @@
         .addEventListener("input", filterData);
 
     document.getElementById("categoryFilter")
+        .addEventListener("change", filterData);
+
+
+    // RESET
+
+    function resetFilter() {
+
+        document.getElementById("searchInput").value = "";
+        
