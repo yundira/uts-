@@ -841,4 +841,20 @@
     function resetFilter() {
 
         document.getElementById("searchInput").value = "";
-        
+        document.getElementById("categoryFilter").value = "Semua";
+
+        updateDashboard(freelancers);
+
+        map.setView([-6.9147, 107.6098], 12);
+
+    }
+
+
+    // TAMPILKAN DATA PERTAMA
+
+    updateDashboard(freelancers);
+
+</script>
+
+</body>
+</html>
