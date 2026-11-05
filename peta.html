@@ -817,3 +817,19 @@
 
         document.getElementById("totalCategories").textContent =
             categories.length;
+
+        document.getElementById("resultCount").textContent =
+            data.length;
+
+        showMarkers(data);
+        showList(data);
+
+    }
+
+
+    // EVENT FILTER
+
+    document.getElementById("searchInput")
+        .addEventListener("input", filterData);
+
+    document.getElementById("categoryFilter")
