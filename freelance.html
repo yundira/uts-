@@ -173,7 +173,7 @@ class="sidebar fixed top-0 left-0 z-50 w-64 h-screen bg-white border-r border-sl
 
         <div class="flex items-center gap-3">
             <div class="hidden sm:block text-right">
-                <p class="text-sm font-bold">Rini Denia Putri</p>
+                <p class="text-sm font-bold">Rinnheree</p>
                 <p class="text-xs text-slate-400">Mahasiswa</p>
             </div>
 
@@ -292,7 +292,25 @@ class="sidebar fixed top-0 left-0 z-50 w-64 h-screen bg-white border-r border-sl
                     Menampilkan 10 layanan
                 </p>
             </div>
+            <select id="statusFilter"
+onchange="applyFilters()"
+class="border border-slate-200 bg-white rounded-xl px-4 py-3 text-sm outline-none">
 
+    <option value="all">Semua Status</option>
+    <option value="Tersedia">Tersedia</option>
+    <option value="Sibuk">Sibuk</option>
+
+        </select>
+            <select id="priceFilter"
+    onchange="applyFilters()"
+    class="border border-slate-200 bg-white rounded-xl px-4 py-3 text-sm outline-none">
+
+    <option value="all">Semua Harga</option>
+    <option value="under100">Di bawah Rp100.000</option>
+    <option value="100to300">Rp100.000 - Rp300.000</option>
+    <option value="above300">Di atas Rp300.000</option>
+
+</select>
             <select id="sortSelect"
             onchange="applyFilters()"
             class="border border-slate-200 bg-white rounded-xl px-4 py-3 text-sm outline-none">
@@ -346,7 +364,7 @@ initials:"NA", color:"bg-purple-100 text-purple-700",
 title:"Desain Logo dan Branding Bisnis",
 category:"Design",
 description:"Membantu membuat logo profesional untuk bisnis, organisasi, dan usaha kecil.",
-price:50000, rating:4.9, reviews:24, status:"Tersedia"
+price:50000, rating:4.9, reviews:24, status:"Sibuk"
 },
 
 {
@@ -409,7 +427,7 @@ initials:"KS", color:"bg-cyan-100 text-cyan-700",
 title:"Editing Video Presentasi",
 category:"Video Editing",
 description:"Mengedit video presentasi dan tugas multimedia.",
-price:60000, rating:4.7, reviews:14, status:"Tersedia"
+price:60000, rating:4.7, reviews:14, status:"Sibuk"
 },
 
 {
@@ -487,11 +505,20 @@ function renderServices(data) {
                 </button>
 
             </div>
+                    <div class="mb-4 flex flex-wrap items-center gap-2">
 
-            <div class="mb-4">
                 <span class="text-xs font-semibold bg-blue-50 text-blue-700 px-3 py-1 rounded-full">
                     ${service.category}
                 </span>
+
+                <span class="text-xs font-semibold px-3 py-1 rounded-full ${
+                    service.status === "Tersedia"
+                    ? "bg-green-100 text-green-700"
+                    : "bg-red-100 text-red-700"
+                }">
+                    ${service.status}
+                </span>
+
             </div>
 
             <h3 class="font-bold text-slate-800 leading-snug min-h-[48px]">
@@ -563,7 +590,8 @@ document.getElementById("searchForm").addEventListener("submit", function(event)
 function applyFilters() {
 
     const sort = document.getElementById("sortSelect").value;
-
+    const statusFilter = document.getElementById("statusFilter").value;
+    const priceFilter = document.getElementById("priceFilter").value;
     let result = services.filter(service => {
 
         const searchableText = [
@@ -579,8 +607,16 @@ function applyFilters() {
         const matchCategory =
             selectedCategory === "Semua" ||
             service.category === selectedCategory;
+        const matchStatus =
+    statusFilter === "all" ||
+    service.status === statusFilter;
+    const matchPrice =
+    priceFilter === "all" ||
+    (priceFilter === "under100" && service.price < 100000) ||
+    (priceFilter === "100to300" && service.price >= 100000 && service.price <= 300000) ||
+    (priceFilter === "above300" && service.price > 300000);
 
-        return matchKeyword && matchCategory;
+       return matchKeyword && matchCategory && matchStatus && matchPrice;
 
     });
 
