@@ -71,4 +71,35 @@
 
         .filter-input:focus {
             border-color: #3b82f6;
-            
+        }
+
+        .freelancer-item {
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 15px;
+            transition: .2s;
+            cursor: pointer;
+        }
+
+        .freelancer-item:hover {
+            border-color: #93c5fd;
+            background: #f8fbff;
+        }
+
+        @media(max-width: 768px) {
+            .sidebar {
+                display: none;
+            }
+
+            #map {
+                height: 420px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="flex min-h-screen">
+
+    <!-- SIDEBAR -->    
