@@ -104,10 +104,9 @@ const freelancers = [
     { id: 10, name: "Dimas Prakoso", service: "Jasa Coding HTML, CSS dan JavaScript", category: "Programming", price: 90000, location: "Coblong", lat: -6.8910, lng: 107.6100 }
 ];
 const map = L.map("map").setView([-6.9147, 107.6098], 12);
-L.tileLayer("https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png", {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
-    subdomains: 'abcd',
-    maxZoom: 20
+L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}", {
+    attribution: 'Tiles &copy; Esri &mdash; Source: Esri, DeLorme, NAVTEQ, USGS, Intermap, iPC, NRCAN, Esri Japan, METI, Esri China, OpenStreetMap contributors',
+    maxZoom: 19
 }).addTo(map);
 const markerGroup = L.featureGroup().addTo(map);
 function formatRupiah(number) { return "Rp" + number.toLocaleString("id-ID"); }
