@@ -1,390 +1,124 @@
 <!DOCTYPE html>
 <html lang="id">
-  <head>
-   <meta charset="UTF-8">
-   <meta name="virwport"content="width=device-width,initial-scale=1.0">
-
-   <title>Kontak - Campus Freelancer Network</title>
-
-   <script src="https://cdn.tailwindcss.com"></script>
-   
-   <link rel="stylesheet"
-   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
- 
-   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-   rel="stylesheet">
-
-    <link rel="stylesheet" href="css/pesan.css">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesan Masuk - Campus Freelancer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background: #f8fafc; }
+        .sidebar-link { display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-radius: 10px; color: #64748b; font-size: 14px; font-weight: 500; transition: .2s; }
+        .sidebar-link:hover, .sidebar-link.active { background: #eff6ff; color: #2563eb; font-weight: 600; }
+        .map-card { background: white; border: 1px solid #e2e8f0; border-radius: 16px; padding: 20px; }
+        .filter-input { width: 100%; border: 1px solid #e2e8f0; border-radius: 9px; padding: 11px 13px; outline: none; background: white; font-size: 14px; }
+        .filter-input:focus { border-color: #3b82f6; box-shadow: 0 0 0 3px rgba(59,130,246,0.1); }
+        .pesan-item { border: 1px solid #e2e8f0; border-radius: 12px; padding: 16px; background: white; transition: .2s; cursor: pointer; }
+        .pesan-item:hover { border-color: #93c5fd; background: #f8fbff; }
+        .pesan-item.unread { background: #eff6ff; border-color: #bfdbfe; }
+    </style>
 </head>
-
 <body class="text-slate-800">
-
 <div class="min-h-screen flex">
-
-<!-- OVERLAY MOBILE -->
-<div id="overlay"
-onclick="toggleSidebar()"
-class="fixed inset-0 bg-black/40 z-40 hidden md:hidden">
+    <div id="overlay" onclick="toggleSidebar()" class="fixed inset-0 bg-black/40 z-40 hidden md:hidden"></div>
+    <aside id="sidebar" class="fixed md:sticky top-0 left-0 z-50 w-64 h-screen bg-white border-r border-slate-200 flex flex-col p-5 -translate-x-full md:translate-x-0">
+        <div class="flex items-center gap-3 mb-9">
+            <div class="bg-blue-600 text-white w-10 h-10 rounded-xl flex items-center justify-center"><i class="fas fa-graduation-cap"></i></div>
+            <div><h1 class="font-extrabold text-lg">Campus<span class="text-blue-600">Freelance</span></h1><p class="text-xs text-slate-400">Network Platform</p></div>
+            <button onclick="toggleSidebar()" class="ml-auto md:hidden text-slate-500 text-xl"><i class="fas fa-xmark"></i></button>
+        </div>
+        <p class="text-xs font-bold text-slate-400 uppercase mb-3">Menu Utama</p>
+        <nav class="space-y-1">
+            <a href="dashboard.html" class="sidebar-link"><i class="fas fa-house w-5"></i> Dashboard</a>
+            <a href="freelance.html" class="sidebar-link"><i class="fas fa-briefcase w-5"></i> Freelance</a>
+            <a href="peta.html" class="sidebar-link"><i class="fas fa-map-location-dot w-5"></i> Peta Freelancer</a>
+            <a href="kontak.html" class="sidebar-link"><i class="fas fa-envelope w-5"></i> Kontak</a>
+            <a href="pesan.html" class="sidebar-link active"><i class="fas fa-inbox w-5"></i> Pesan Masuk <span id="badgePesan" class="ml-auto bg-red-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">0</span></a>
+            <a href="login.html" class="sidebar-link"><i class="fas fa-right-from-bracket w-5"></i> Keluar</a>
+        </nav>
+        <div class="mt-auto bg-blue-50 rounded-xl p-4"><p class="font-semibold text-sm text-blue-800">Admin Campus Freelancer</p><p class="text-xs text-blue-600 mt-1">Kelola pesan yang masuk dari pengguna.</p></div>
+    </aside>
+    <main class="flex-1 min-w-0">
+        <header class="bg-white border-b border-slate-200 px-5 md:px-8 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <button onclick="toggleSidebar()" class="md:hidden text-slate-600 text-xl"><i class="fas fa-bars"></i></button>
+                <div><p class="text-sm text-slate-400">Menu / Pesan Masuk</p><h2 class="font-bold text-xl text-slate-800">Pesan Masuk</h2></div>
+            </div>
+            <div class="hidden sm:flex items-center gap-3">
+                <div class="text-right"><p class="font-semibold text-sm text-slate-800">Rani Anggraini Ramadhani</p><p class="text-xs text-slate-500">Mahasiswa</p></div>
+                <div class="w-10 h-10 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center"><i class="fas fa-user"></i></div>
+            </div>
+        </header>
+        <section class="p-5 md:p-8 max-w-7xl mx-auto">
+            <div class="mb-7"><p class="text-sm font-semibold text-blue-600 uppercase tracking-wide">Administrator</p><h2 class="text-2xl font-bold text-slate-800 mt-1">Kotak Pesan</h2><p class="text-sm text-slate-500 mt-2">Lihat dan kelola semua pesan yang dikirim melalui halaman Kontak.</p></div>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-7">
+                <div class="bg-white border border-slate-200 rounded-2xl p-5"><div class="w-10 h-10 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mb-3"><i class="fas fa-envelope"></i></div><p class="text-sm text-slate-500">Total Pesan</p><h3 id="totalPesan" class="text-3xl font-bold mt-1">0</h3></div>
+                <div class="bg-white border border-slate-200 rounded-2xl p-5"><div class="w-10 h-10 bg-orange-50 text-orange-600 rounded-xl flex items-center justify-center mb-3"><i class="fas fa-envelope-open"></i></div><p class="text-sm text-slate-500">Belum Dibaca</p><h3 id="belumDibaca" class="text-3xl font-bold mt-1">0</h3></div>
+                <div class="bg-white border border-slate-200 rounded-2xl p-5"><div class="w-10 h-10 bg-green-50 text-green-600 rounded-xl flex items-center justify-center mb-3"><i class="fas fa-check-double"></i></div><p class="text-sm text-slate-500">Sudah Dibaca</p><h3 id="sudahDibaca" class="text-3xl font-bold mt-1">0</h3></div>
+            </div>
+            <div class="map-card">
+                <div class="flex flex-wrap justify-between items-center gap-3 mb-5">
+                    <div><h3 class="font-bold text-lg">Daftar Pesan</h3><p class="text-sm text-slate-500 mt-1">Semua pesan dari pengguna Campus Freelancer.</p></div>
+                    <button onclick="loadPesan()" class="text-sm font-semibold text-blue-600"><i class="fas fa-rotate mr-1"></i> Perbarui</button>
+                </div>
+                <div class="relative mb-4"><i class="fas fa-search absolute left-4 top-4 text-slate-400"></i><input type="text" id="searchPesan" oninput="renderPesan()" class="filter-input pl-11" placeholder="Cari nama atau subjek pesan..."></div>
+                <div id="listPesan" class="space-y-3"></div>
+                <div id="emptyPesan" class="hidden text-center py-10 text-slate-400"><i class="fas fa-inbox text-3xl mb-3"></i><p class="text-sm">Belum ada pesan masuk.<br>Coba kirim pesan dari halaman Kontak.</p></div>
+            </div>
+            <p class="text-xs text-slate-400 text-center mt-7">© 2026 Campus Freelancer Network.</p>
+        </section>
+    </main>
 </div>
-
-<!-- SIDEBAR -->
-<aside id="sidebar"
-class="fixed md:sticky top-0 left-0 z-50 w-64 h-screen bg-white border-r border-slate-200 flex flex-col p-5 -translate-x-full md:translate-x-0">
-
-<div class="flex items-center gap-3 mb-9">
-
-<div class="w-10 h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center">
-<i class="fa-solid fa-graduation-cap"></i>
-</div>
-
-<div>
-<h1 class="font-extrabold text-lg">
-Campus<span class="text-blue-600">Freelance</span>
-</h1>
-<p class="text-xs text-slate-400">Network Platform</p>
-</div>
-
-<button onclick="toggleSidebar()"
-class="ml-auto md:hidden text-slate-500 text-xl">
-<i class="fa-solid fa-xmark"></i>
-</button>
-
-</div>
-
-<p class="text-xs font-bold text-slate-400 uppercase mb-3">
-Menu Utama
-</p>
-
-<nav class="space-y-1">
-
-<a href="dashboard.html" class="sidebar-link">
-<i class="fa-solid fa-house w-5"></i>
-Dashboard
-</a>
-
-<a href="freelance.html" class="sidebar-link">
-<i class="fa-solid fa-briefcase w-5"></i>
-Freelance
-</a>
-
-<a href="peta.html" class="sidebar-link">
-<i class="fa-solid fa-map-location-dot w-5"></i>
-Peta Freelancer
-</a>
-
-<a href="kontak.html" class="sidebar-link">
-<i class="fa-regular fa-envelope w-5"></i>
-Kontak
-</a>
-
-<a href="pesan.html" class="sidebar-link active">
-<i class="fa-solid fa-inbox w-5"></i>
-Pesan Masuk
-
-<span id="sidebarCount"
-class="ml-auto text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded-full">
-0
-</span>
-</a>
-
-<a href="login.html" class="sidebar-link">
-<i class="fa-solid fa-right-from-bracket w-5"></i>
-Keluar
-</a>
-
-</nav>
-
-<div class="mt-auto bg-blue-50 rounded-xl p-4">
-<p class="font-semibold text-sm text-blue-800">
-Admin Campus Freelancer
-</p>
-
-<p class="text-xs text-blue-600 mt-1">
-Kelola pesan yang masuk dari pengguna.
-</p>
-</div>
-
-</aside>
-
-<!-- MAIN CONTENT -->
-<main class="flex-1 min-w-0">
-
-<!-- HEADER -->
-<header class="bg-white border-b border-slate-200 px-5 md:px-8 py-4 flex justify-between items-center">
-
-<div class="flex items-center gap-3">
-
-<button onclick="toggleSidebar()"
-class="md:hidden text-slate-600 text-xl">
-<i class="fa-solid fa-bars"></i>
-</button>
-
-<div>
-<p class="text-sm text-slate-400">
-Menu / Pesan Masuk
-</p>
-
-<h2 class="text-xl font-bold">
-Pesan Masuk
-</h2>
-</div>
-
-</div>
-
-<a href="dashboard.html"
-class="w-10 h-10 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center">
-
-<i class="fa-solid fa-user"></i>
-
-</a>
-
-</header>
-
-<!-- CONTENT -->
-<section class="p-5 md:p-8 max-w-6xl mx-auto">
-
-<!-- INTRO -->
-<div class="mb-8">
-
-<p class="text-blue-600 font-semibold text-sm mb-2">
-ADMINISTRATOR
-</p>
-
-<h1 class="text-3xl font-extrabold mb-3">
-  kotak pesan
-</h1>
-
-<p class="text-slate-500">
-  Lihat dan kelola semua pesan yang dikirim melalui halaman kontak.
-</p>
-
-</div>
-
-<!-- STATISTIK-->
-<div class="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-8">
-
-<div class="bg-white border border-slate-200 rounded-2xl p-5">
-
-<div class="flex items-center justify-between mb-4">
-<div class="w-11 h-11 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center">
-  <i class="fa-solid fe-envelope text-xl"></i>
-  </div>
-  </div>
-
- <p class="text-slate-500">
-  Total pesan
- </p>
- 
- <h2 id="totalpesan"
- class="text-3xl font-extrabold mt-1">
-0
-</h2>
-
-</div>
-
-<div class="bg-white border border-slate-200 rounded-2xl p-5">
-
-<div class="flex items-center justify-between mb-4">
- </div class="w-11 h-11 bg-amber-50 text-amber-600 rounded-xl items-center justify-center">
-  <i class="fa-solid fa-envelope-open text-xl"></i>
-</div>
-</div>
-
-<p class="text-sm text-slate-500">
-  Belum Dibaca
-</p>
-
-<h2 id="belumDibaca"
-class="text-3xl font-extrabold mt-1">
-0
-</h2>
-
-</div>
-
-<div class="bg-white border border-slate-200 rounded-2xl p-5">
-
-<div class="flex items-center justify-between mb-4">
-<div class="w-11 h-11 bg-emerald-50 text-emerald-600 rounded-xl flex intems-center justify-center">
-  <i class="fa-check-double text-xl"></i>
-</div>
-</div>
-
-<p class="text-sm text-slate-500">
-    Sudah Dibaca
-</p>
-
-<h2 id="sudahDibaca"
-class="text-3xl font-extrabold mt-1">
-0
-</h2>
-
-</div>
-
-</div>
-
-<!--DAFTAR PESAN-->
-<div class="bg-white border border-slate-200 rounded-2xl p-5 md:p-7">
-
-<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
-
-<div>
-<h2 class="text-xl font-bold">
-Daftar Pesan
-</h2>
-
-<p class="text-sm text-slate-500 mt-1">
-Semua pesan dari pengguna Campus Freelancer.
-</p>
-</div>
-
-<button onclick="loadMessages()"
-class="border border-slate-200 px-4 py-2.5 rounded-xl text-sm font-semibold hover:bg-slate-50">
-
-<i class="fa-solid fa-rotate-right mr-2"></i>
-Perbarui
-
-</button>
-</div>
-
-<!-- SEARCH -->
-<div class="relative mb-5">
-
-<i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
-
-<input
-type="text"
-id="searchMessage"
-oninput="renderMessages()"
-placeholder="Cari nama atau subjek pesan..."
-class="w-full border border-slate-200 rounded-xl pl-11 pr-4 py-3 text-sm outline-none focus:ring-2 focus:ring-blue-200">
-
-</div>
-</div>
-
-<!-- FILTER -->
-<div class="flex flex-wrap gap-2 mb-6">
-
-<button onclick="setFilter('semua')"
-id="filterSemua"
-class="filter-btn bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-semibold">
-Semua
-</button>
-
-<button onclick="setFilter('belum')"
-id="filterBelum"
-class="filter-btn bg-slate-100 text-slate-600 px-4 py-2 rounded-lg text-sm font-semibold">
-Belum Dibaca
-</button>
-
-<button onclick="setFilter('sudah')"
-id="filterSudah"
-class="filter-btn bg-slate-100 text-slate-600 px-4 py-2 rounded-lg text-sm font-semibold">
-Sudah Dibaca
-</button>
-
-</div>
-
-<!-- LIST PESAN -->
-<div id="messageList" class="space-y-4">
-</div>
-
-<!-- EMPTY STATE -->
-<div id="emptyMessage" class="hidden text-center py-14">
-
-<div class="w-16 h-16 bg-slate-100 text-slate-400 rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4">
-<i class="fa-regular fa-envelope-open"></i>
-</div>
-
-<h3 id="emptyTitle" class="font-bold text-lg mb-2">
-Belum Ada Pesan
-</h3>
-
-<p id="emptyDescription" class="text-sm text-slate-500">
-Pesan dari halaman Kontak akan muncul di sini.
-</p>
-
-<a href="kontak.html"
-class="inline-block mt-5 bg-blue-600 text-white px-5 py-3 rounded-xl text-sm font-semibold hover:bg-blue-700">
-Buka Halaman Kontak
-</a>
-
-</div>
-
-</div>
-
-</section>
-
-</main>
-
-</div>
-
-<!-- MODAL DETAIL PESAN -->
-<div id="detailModal"
-class="hidden fixed inset-0 bg-slate-900/50 z-[60] items-center justify-center p-4">
-
-<div class="bg-white rounded-2xl w-full max-w-lg p-6 max-h-[90vh] overflow-y-auto">
-
-<div class="flex justify-between items-center mb-6">
-
-<h2 class="text-xl font-bold">
-Detail Pesan
-</h2>
-
-<button onclick="closeModal()"
-class="text-slate-400 hover:text-slate-700 text-xl">
-<i class="fa-solid fa-xmark"></i>
-</button>
-
-</div>
-
-<div class="space-y-4">
-
-<div>
-<p class="text-xs text-slate-400 mb-1">Nama Pengirim</p>
-<p id="detailNama" class="font-semibold"></p>
-</div>
-
-<div>
-<p class="text-xs text-slate-400 mb-1">Email</p>
-<p id="detailEmail" class="font-semibold break-all"></p>
-</div>
-
-<div>
-<p class="text-xs text-slate-400 mb-1">Subjek</p>
-<p id="detailSubjek" class="font-semibold"></p>
-</div>
-
-<div>
-<p class="text-xs text-slate-400 mb-1">Tanggal</p>
-<p id="detailTanggal" class="text-sm"></p>
-</div>
-
-<div class="border-t pt-4">
-
-<p class="text-xs text-slate-400 mb-2">
-Isi Pesan
-</p>
-
-<div id="detailIsi"
-  class="bg-slate-50 rounded-xl p-4 text-sm leading-7 whitespace-pre-wrap break-words">
-</div>
-
-</div>
-
-</div>
-
-<button onclick="closeModal()"
-class="w-full mt-6 bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-xl font-semibold">
-Tutup
-</button>
-
-</div>
-
-</div>
-
-
-
-
-<script src="js/pesan.js"></script>
+<script>
+function toggleSidebar(){
+    document.getElementById("sidebar").classList.toggle("-translate-x-full");
+    document.getElementById("overlay").classList.toggle("hidden");
+}
+let semuaPesan = JSON.parse(localStorage.getItem("pesanMasuk") || "null");
+if(!semuaPesan || semuaPesan.length === 0){
+    semuaPesan = [
+        { nama: "Nadia Amalia", email: "nadia@mail.com", subjek: "Tanya Jasa Desain Logo", pesan: "Halo kak, mau tanya harga desain logo untuk UMKM berapa ya?", tanggal: "06 Nov 2026", dibaca: false },
+        { nama: "Ahmad Fauzan", email: "fauzan@mail.com", subjek: "Order Website", pesan: "Saya mau pesan website portofolio, bisa dikerjakan berapa lama?", tanggal: "05 Nov 2026", dibaca: true },
+        { nama: "Salsa Putri", email: "salsa@mail.com", subjek: "Kerjasama Content", pesan: "Halo, saya tertarik kerjasama untuk penulisan artikel mingguan.", tanggal: "05 Nov 2026", dibaca: false }
+    ];
+}
+function loadPesan(){ renderPesan(); }
+function renderPesan(){
+    const keyword = document.getElementById("searchPesan").value.toLowerCase();
+    const list = document.getElementById("listPesan");
+    const empty = document.getElementById("emptyPesan");
+    const filtered = semuaPesan.filter(p => p.nama.toLowerCase().includes(keyword) || p.subjek.toLowerCase().includes(keyword));
+    const belum = semuaPesan.filter(p => !p.dibaca).length;
+    document.getElementById("totalPesan").textContent = semuaPesan.length;
+    document.getElementById("belumDibaca").textContent = belum;
+    document.getElementById("sudahDibaca").textContent = semuaPesan.length - belum;
+    document.getElementById("badgePesan").textContent = belum;
+    list.innerHTML = "";
+    if(filtered.length === 0){ empty.classList.remove("hidden"); return; }
+    empty.classList.add("hidden");
+    filtered.forEach((p) => {
+        const div = document.createElement("div");
+        div.className = "pesan-item " + (!p.dibaca ? "unread" : "");
+        div.innerHTML = `
+            <div class="flex justify-between items-start gap-3">
+                <div class="flex gap-3 min-w-0">
+                    <div class="w-10 h-10 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold flex-shrink-0">${p.nama.charAt(0)}</div>
+                    <div class="min-w-0">
+                        <p class="font-semibold text-sm">${p.nama} ${!p.dibaca ? '<span class="ml-1 text-xs bg-blue-600 text-white px-2 py-0.5 rounded-full">Baru</span>' : ''}</p>
+                        <p class="text-xs text-slate-500">${p.email} • ${p.tanggal}</p>
+                        <p class="font-semibold text-sm mt-2">${p.subjek}</p>
+                        <p class="text-sm text-slate-500 mt-1">${p.pesan}</p>
+                    </div>
+                </div>
+                <button onclick="hapusPesan(${semuaPesan.indexOf(p)})" class="text-red-400 hover:text-red-600 text-sm flex-shrink-0"><i class="fas fa-trash"></i></button>
+            </div>`;
+        div.onclick = (e) => { if(e.target.closest("button")) return; p.dibaca = true; localStorage.setItem("pesanMasuk", JSON.stringify(semuaPesan)); renderPesan(); };
+        list.appendChild(div);
+    });
+}
+function hapusPesan(i){ semuaPesan.splice(i,1); localStorage.setItem("pesanMasuk", JSON.stringify(semuaPesan)); renderPesan(); }
+renderPesan();
+</script>
 </body>
 </html>
