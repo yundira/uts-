@@ -321,7 +321,7 @@
                     </p>
 
                     <button onclick="resetFilter()"
-                        class="text-sm font-semibold text-blue-600 hover:text-blue-800"></button>   
+                        class="text-sm font-semibold text-blue-600 hover:text-blue-800">
                         <i class="fas fa-rotate-left mr-1"></i>
                         Reset Filter
                     </button>
@@ -603,8 +603,13 @@
 
     const map = L.map("map").setView([-6.9147, 107.6098], 12);
 
-    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    L.tileLayer("https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}
+    {r}.png", {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenS
+    treetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO
+    </a>',
+        subdomains: 'abcd',
+        maxZoom: 20
     }).addTo(map);
 
 
