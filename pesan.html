@@ -259,3 +259,132 @@ placeholder="Cari nama atau subjek pesan..."
 class="w-full border border-slate-200 rounded-xl pl-11 pr-4 py-3 text-sm outline-none focus:ring-2 focus:ring-blue-200">
 
 </div>
+</div>
+
+<!-- FILTER -->
+<div class="flex flex-wrap gap-2 mb-6">
+
+<button onclick="setFilter('semua')"
+id="filterSemua"
+class="filter-btn bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-semibold">
+Semua
+</button>
+
+<button onclick="setFilter('belum')"
+id="filterBelum"
+class="filter-btn bg-slate-100 text-slate-600 px-4 py-2 rounded-lg text-sm font-semibold">
+Belum Dibaca
+</button>
+
+<button onclick="setFilter('sudah')"
+id="filterSudah"
+class="filter-btn bg-slate-100 text-slate-600 px-4 py-2 rounded-lg text-sm font-semibold">
+Sudah Dibaca
+</button>
+
+</div>
+
+<!-- LIST PESAN -->
+<div id="messageList" class="space-y-4">
+</div>
+
+<!-- EMPTY STATE -->
+<div id="emptyMessage" class="hidden text-center py-14">
+
+<div class="w-16 h-16 bg-slate-100 text-slate-400 rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4">
+<i class="fa-regular fa-envelope-open"></i>
+</div>
+
+<h3 id="emptyTitle" class="font-bold text-lg mb-2">
+Belum Ada Pesan
+</h3>
+
+<p id="emptyDescription" class="text-sm text-slate-500">
+Pesan dari halaman Kontak akan muncul di sini.
+</p>
+
+<a href="kontak.html"
+class="inline-block mt-5 bg-blue-600 text-white px-5 py-3 rounded-xl text-sm font-semibold hover:bg-blue-700">
+Buka Halaman Kontak
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+</div>
+
+<!-- MODAL DETAIL PESAN -->
+<div id="detailModal"
+class="hidden fixed inset-0 bg-slate-900/50 z-[60] items-center justify-center p-4">
+
+<div class="bg-white rounded-2xl w-full max-w-lg p-6 max-h-[90vh] overflow-y-auto">
+
+<div class="flex justify-between items-center mb-6">
+
+<h2 class="text-xl font-bold">
+Detail Pesan
+</h2>
+
+<button onclick="closeModal()"
+class="text-slate-400 hover:text-slate-700 text-xl">
+<i class="fa-solid fa-xmark"></i>
+</button>
+
+</div>
+
+<div class="space-y-4">
+
+<div>
+<p class="text-xs text-slate-400 mb-1">Nama Pengirim</p>
+<p id="detailNama" class="font-semibold"></p>
+</div>
+
+<div>
+<p class="text-xs text-slate-400 mb-1">Email</p>
+<p id="detailEmail" class="font-semibold break-all"></p>
+</div>
+
+<div>
+<p class="text-xs text-slate-400 mb-1">Subjek</p>
+<p id="detailSubjek" class="font-semibold"></p>
+</div>
+
+<div>
+<p class="text-xs text-slate-400 mb-1">Tanggal</p>
+<p id="detailTanggal" class="text-sm"></p>
+</div>
+
+<div class="border-t pt-4">
+
+<p class="text-xs text-slate-400 mb-2">
+Isi Pesan
+</p>
+
+<div id="detailIsi"
+  class="bg-slate-50 rounded-xl p-4 text-sm leading-7 whitespace-pre-wrap break-words">
+</div>
+
+</div>
+
+</div>
+
+<button onclick="closeModal()"
+class="w-full mt-6 bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-xl font-semibold">
+Tutup
+</button>
+
+</div>
+
+</div>
+
+
+
+
+<script src="js/pesan.js"></script>
+</body>
+</html>
