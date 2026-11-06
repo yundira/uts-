@@ -259,3 +259,61 @@ placeholder="Cari nama atau subjek pesan..."
 class="w-full border border-slate-200 rounded-xl pl-11 pr-4 py-3 text-sm outline-none focus:ring-2 focus:ring-blue-200">
 
 </div>
+</div>
+
+<!-- FILTER -->
+<div class="flex flex-wrap gap-2 mb-6">
+
+<button onclick="setFilter('semua')"
+id="filterSemua"
+class="filter-btn bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-semibold">
+Semua
+</button>
+
+<button onclick="setFilter('belum')"
+id="filterBelum"
+class="filter-btn bg-slate-100 text-slate-600 px-4 py-2 rounded-lg text-sm font-semibold">
+Belum Dibaca
+</button>
+
+<button onclick="setFilter('sudah')"
+id="filterSudah"
+class="filter-btn bg-slate-100 text-slate-600 px-4 py-2 rounded-lg text-sm font-semibold">
+Sudah Dibaca
+</button>
+
+</div>
+
+<!-- LIST PESAN -->
+<div id="messageList" class="space-y-4">
+</div>
+
+<!-- EMPTY STATE -->
+<div id="emptyMessage" class="hidden text-center py-14">
+
+<div class="w-16 h-16 bg-slate-100 text-slate-400 rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4">
+<i class="fa-regular fa-envelope-open"></i>
+</div>
+
+<h3 id="emptyTitle" class="font-bold text-lg mb-2">
+Belum Ada Pesan
+</h3>
+
+<p id="emptyDescription" class="text-sm text-slate-500">
+Pesan dari halaman Kontak akan muncul di sini.
+</p>
+
+<a href="kontak.html"
+class="inline-block mt-5 bg-blue-600 text-white px-5 py-3 rounded-xl text-sm font-semibold hover:bg-blue-700">
+Buka Halaman Kontak
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+</div>
