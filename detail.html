@@ -3,21 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Detail Freelancer | Campus Freelancer Network</title>
+<title>Pesan Masuk - Campus Freelancer</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-body { font-family: 'Inter', sans-serif; background: #F8FAFC; }
+body { font-family: 'Inter', sans-serif; background: #f8fafc; }
 .sidebar-link { display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-radius: 10px; color: #64748b; font-size: 14px; font-weight: 500; transition: .2s; }
 .sidebar-link:hover, .sidebar-link.active { background: #eff6ff; color: #2563eb; font-weight: 600; }
-.service-card { transition: .25s; }
-.service-card:hover { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(15,23,42,.07); }
+.filter-input { width: 100%; border: 1px solid #e2e8f0; border-radius: 9px; padding: 11px 13px; outline: none; background: white; font-size: 14px; }
+.filter-input:focus { border-color: #3b82f6; box-shadow: 0 0 0 3px rgba(59,130,246,0.1); }
+.pesan-item { border: 1px solid #e2e8f0; border-radius: 12px; padding: 16px; background: white; transition: .2s; }
+.pesan-item:hover { border-color: #93c5fd; background: #f8fbff; }
+.pesan-item.unread { background: #eff6ff; border-color: #bfdbfe; }
 </style>
 </head>
 <body class="text-slate-800">
-<div id="overlay" onclick="toggleSidebar()" class="fixed inset-0 bg-black/40 z-40 hidden md:hidden"></div>
 <div class="min-h-screen flex">
+<div id="overlay" onclick="toggleSidebar()" class="fixed inset-0 bg-black/40 z-40 hidden md:hidden"></div>
 <aside id="sidebar" class="fixed md:sticky top-0 left-0 z-50 w-64 h-screen bg-white border-r border-slate-200 flex flex-col p-5 -translate-x-full md:translate-x-0">
     <div class="flex items-center gap-3 mb-9">
         <div class="bg-blue-600 text-white w-10 h-10 rounded-xl flex items-center justify-center"><i class="fas fa-graduation-cap"></i></div>
@@ -28,57 +31,60 @@ body { font-family: 'Inter', sans-serif; background: #F8FAFC; }
     <nav class="space-y-1">
         <a href="dashboard.html" class="sidebar-link"><i class="fas fa-house w-5"></i> Dashboard</a>
         <a href="freelance.html" class="sidebar-link"><i class="fas fa-briefcase w-5"></i> Freelance</a>
-        <a href="detail.html" class="sidebar-link active"><i class="fas fa-id-card w-5"></i> Detail Freelancer</a>
+        <a href="detail.html" class="sidebar-link"><i class="fas fa-id-card w-5"></i> Detail Freelancer</a>
         <a href="peta.html" class="sidebar-link"><i class="fas fa-map-location-dot w-5"></i> Peta Freelancer</a>
         <a href="kontak.html" class="sidebar-link"><i class="fas fa-envelope w-5"></i> Kontak</a>
-        <a href="pesan.html" class="sidebar-link"><i class="fas fa-inbox w-5"></i> Pesan Masuk</a>
+        <a href="pesan.html" class="sidebar-link active"><i class="fas fa-inbox w-5"></i> Pesan Masuk <span id="badgePesan" class="ml-auto bg-red-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">0</span></a>
         <a href="login.html" class="sidebar-link"><i class="fas fa-right-from-bracket w-5"></i> Keluar</a>
     </nav>
-<<<<<<< HEAD
     <div class="mt-auto bg-blue-50 rounded-xl p-4"><p class="font-semibold text-sm text-blue-800">Campus Freelancer</p><p class="text-xs text-blue-600 mt-1">Hubungkan bakat dengan peluang.</p></div>
 </aside>
-<main class="flex-1 min-w-0">
-    <header class="h-20 bg-white border-b border-slate-200 flex items-center justify-between px-5 md:px-8 sticky top-0 z-30">
-        <div class="flex items-center gap-4">
-            <button onclick="toggleSidebar()" class="md:hidden text-xl text-slate-600"><i class="fa-solid fa-bars"></i></button>
-            <div><p class="text-xs text-slate-400">Menu / Detail</p><h2 class="font-bold text-lg">Detail Freelancer</h2></div>
-        </div>
-        <div class="flex items-center gap-3">
-            <div class="hidden sm:block text-right"><p class="text-sm font-bold">Jeni Walilo</p><p class="text-xs text-slate-400">Mahasiswa</p></div>
-            <div class="w-10 h-10 bg-blue-100 text-blue-700 rounded-full flex items-center justify-center font-bold">J</div>
-        </div>
-=======
-    <div class="mt-auto border-t border-slate-100 pt-5"><a href="login.html" class="nav-link flex items-center gap-3 p-3 rounded-xl text-red-500"><i class="fa-solid fa-right-from-bracket w-5"></i><span class="text-sm font-medium">Keluar</span></a></div>
-  </aside>
 
-  <main class="md:ml-64 min-h-screen">
-    <header class="bg-white border-b border-slate-200 px-5 md:px-8 py-4 flex items-center justify-between sticky top-0 z-30">
-      <div class="flex items-center gap-4"><button onclick="toggleSidebar()" class="md:hidden text-xl text-slate-600"><i class="fa-solid fa-bars"></i></button><div><h2 class="font-bold text-lg text-navy">Detail Freelancer</h2><p class="text-xs text-slate-500">Informasi layanan freelancer mahasiswa</p></div></div>
-      <div class="flex items-center gap-3"><div class="text-right hidden sm:block"><p class="text-sm font-bold">Rini Denia Putri</p><p class="text-xs text-slate-500">Mahasiswa</p></div><div class="w-10 h-10 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center font-bold">R</div></div>
->>>>>>> 4439e1d10f67e85be76761c397ec987f5486ba5b
-    </header>
-    <section class="p-5 md:p-8">
-      <div id="listPage">
-        <div class="mb-8"><p class="text-sm text-blue-600 font-semibold mb-2">CAMPUS FREELANCER NETWORK</p><h1 class="text-2xl md:text-3xl font-extrabold mb-2">Daftar Detail Freelancer</h1><p class="text-sm text-slate-500">Pilih freelancer untuk melihat informasi layanan secara lengkap.</p></div>
-        <div class="bg-white border rounded-2xl p-5 mb-6 flex flex-col md:flex-row gap-3">
-          <input id="searchInput" oninput="renderList()" type="text" placeholder="Cari nama atau layanan freelancer..." class="flex-1 border rounded-xl px-4 py-3 text-sm outline-none focus:border-blue-500">
-          <select id="categoryFilter" onchange="renderList()" class="border rounded-xl px-4 py-3 text-sm outline-none">
-            <option value="Semua">Semua Kategori</option>
-            <option>Web Development</option>
-            <option>Programming</option>
-            <option>Design</option>
-            <option>Beauty & Content</option>
-            <option>Video Editing</option>
-            <option>Writing</option>
-            <option>Digital Marketing</option>
-          </select>
+<main class="flex-1 min-w-0">
+    <header class="bg-white border-b border-slate-200 px-5 md:px-8 py-4 flex justify-between items-center sticky top-0 z-30">
+        <div class="flex items-center gap-3">
+            <button onclick="toggleSidebar()" class="md:hidden text-slate-600 text-xl"><i class="fas fa-bars"></i></button>
+            <div><p class="text-sm text-slate-400">Menu / Pesan Masuk</p><h2 class="font-bold text-xl">Pesan Masuk</h2></div>
         </div>
-        <div class="flex justify-between items-center mb-5"><div><h2 class="font-bold text-lg">Daftar Freelancer</h2><p id="resultCount" class="text-xs text-slate-500 mt-1"></p></div><a href="freelance.html" class="text-sm text-blue-600 font-semibold hover:underline">Halaman Freelance <i class="fa-solid fa-arrow-right ml-1"></i></a></div>
-        <div id="serviceContainer" class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5"></div>
-        <div id="emptyState" class="hidden text-center py-12"><i class="fa-solid fa-folder-open text-5xl text-slate-300"></i><h3 class="font-bold mt-4">Data tidak ditemukan</h3><p class="text-sm text-slate-500 mt-2">Coba kata kunci lainnya.</p></div>
-      </div>
-      <div id="detailPage" class="hidden">
-        <button onclick="showList()" class="text-blue-600 font-semibold text-sm mb-6 hover:underline"><i class="fa-solid fa-arrow-left mr-2"></i>Kembali ke Daftar Freelancer</button>
+        <div class="hidden sm:flex items-center gap-3">
+            <div class="text-right"><p class="font-semibold text-sm">Selvi</p><p class="text-xs text-slate-500">Mahasiswa</p></div>
+            <div class="w-10 h-10 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center font-bold">S</div>
+        </div>
+    </header>
+
+    <!-- ============ HALAMAN 1: DAFTAR PESAN ============ -->
+    <section id="listPage" class="p-5 md:p-8 max-w-7xl mx-auto">
+        <div class="mb-7"><p class="text-sm font-semibold text-blue-600 uppercase tracking-wide">Administrator</p><h2 class="text-2xl font-bold mt-1">Kotak Pesan</h2><p class="text-sm text-slate-500 mt-2">Lihat dan kelola semua pesan yang dikirim melalui halaman Kontak.</p></div>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-7">
+            <div class="bg-white border border-slate-200 rounded-2xl p-5"><div class="w-10 h-10 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mb-3"><i class="fas fa-envelope"></i></div><p class="text-sm text-slate-500">Total Pesan</p><h3 id="totalPesan" class="text-3xl font-bold mt-1">0</h3></div>
+            <div class="bg-white border border-slate-200 rounded-2xl p-5"><div class="w-10 h-10 bg-orange-50 text-orange-600 rounded-xl flex items-center justify-center mb-3"><i class="fas fa-envelope-open"></i></div><p class="text-sm text-slate-500">Belum Dibaca</p><h3 id="belumDibaca" class="text-3xl font-bold mt-1">0</h3></div>
+            <div class="bg-white border border-slate-200 rounded-2xl p-5"><div class="w-10 h-10 bg-green-50 text-green-600 rounded-xl flex items-center justify-center mb-3"><i class="fas fa-check-double"></i></div><p class="text-sm text-slate-500">Sudah Dibaca</p><h3 id="sudahDibaca" class="text-3xl font-bold mt-1">0</h3></div>
+        </div>
+        <div class="bg-white border border-slate-200 rounded-2xl p-5">
+            <div class="flex flex-wrap justify-between items-center gap-3 mb-5">
+                <div><h3 class="font-bold text-lg">Daftar Pesan</h3><p class="text-sm text-slate-500 mt-1">Semua pesan dari pengguna Campus Freelancer.</p></div>
+                <button onclick="loadPesan()" class="text-sm font-semibold text-blue-600"><i class="fas fa-rotate mr-1"></i> Perbarui</button>
+            </div>
+            <div class="relative mb-4"><i class="fas fa-search absolute left-4 top-4 text-slate-400"></i><input type="text" id="searchPesan" oninput="renderPesan()" class="filter-input pl-11" placeholder="Cari nama, jasa, atau subjek pesan..."></div>
+            <div id="listPesan" class="space-y-3"></div>
+            <div id="emptyPesan" class="hidden text-center py-10 text-slate-400"><i class="fas fa-inbox text-3xl mb-3"></i><p class="text-sm">Belum ada pesan masuk.<br>Coba kirim pesan dari halaman Kontak.</p></div>
+        </div>
+        <p class="text-xs text-slate-400 text-center mt-7">© 2026 Campus Freelancer Network.</p>
+    </section>
+
+    <!-- ============ HALAMAN 2: DETAIL FREELANCER (COPY DARI detail.html) ============ -->
+    <section id="detailPage" class="hidden p-5 md:p-8 max-w-7xl mx-auto">
+        <button onclick="showList()" class="text-blue-600 font-semibold text-sm mb-6 hover:underline"><i class="fa-solid fa-arrow-left mr-2"></i>Kembali ke Daftar Pesan</button>
+
+        <!-- PESAN YANG DIKLIK -->
+        <div class="bg-blue-50 border border-blue-100 rounded-2xl p-5 mb-6">
+            <p class="text-xs font-semibold text-blue-600 mb-2">PESAN DARI PENGIRIM</p>
+            <p id="detailPesanNama" class="font-bold"></p>
+            <p id="detailPesanEmail" class="text-xs text-slate-500 mt-1"></p>
+            <p id="detailPesanSubjek" class="font-semibold text-sm mt-3"></p>
+            <p id="detailPesanIsi" class="text-sm text-slate-600 mt-1 leading-relaxed"></p>
+        </div>
+
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
           <div class="lg:col-span-2 bg-white border rounded-2xl p-6 md:p-8">
             <div class="flex flex-col sm:flex-row gap-5 items-start mb-7">
@@ -103,15 +109,20 @@ body { font-family: 'Inter', sans-serif; background: #F8FAFC; }
               <div class="flex justify-between gap-3 text-sm"><span class="text-slate-500">Status</span><b id="summaryStatus" class="text-right"></b></div>
             </div>
             <a id="contactButton" href="kontak.html" class="block text-center bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl py-3 mt-7 text-sm"><i class="fa-solid fa-envelope mr-2"></i>Hubungi Freelancer</a>
-            <button onclick="showList()" class="w-full border rounded-xl py-3 mt-3 text-sm font-semibold hover:bg-slate-50">Lihat Freelancer Lain</button>
+            <a href="detail.html" class="block text-center border rounded-xl py-3 mt-3 text-sm font-semibold hover:bg-slate-50">Buka di Halaman Detail</a>
+            <button onclick="showList()" class="w-full border rounded-xl py-3 mt-3 text-sm font-semibold hover:bg-slate-50">Kembali ke Pesan</button>
           </div>
         </div>
-      </div>
     </section>
 </main>
 </div>
+
 <script>
-/* DATA INI PERSIS SAMA DENGAN freelance.html - JANGAN DIUBAH SENDIRI */
+function toggleSidebar(){
+    document.getElementById("sidebar").classList.toggle("-translate-x-full");
+    document.getElementById("overlay").classList.toggle("hidden");
+}
+/* DATA FREELANCER - SAMA PERSIS DENGAN freelance.html + detail.html */
 const services = [
 {id:1,name:"Nadia Amalia",major:"Sistem Informasi",initials:"NA",color:"bg-purple-100 text-purple-700",title:"Desain Logo dan Branding Bisnis",category:"Design",description:"Membantu membuat logo profesional untuk bisnis, organisasi, dan usaha kecil.",price:50000,rating:4.9,reviews:24,status:"Sibuk"},
 {id:2,name:"Ahmad Fauzan",major:"Teknik Informatika",initials:"AF",color:"bg-blue-100 text-blue-700",title:"Pembuatan Website Responsif",category:"Web Development",description:"Membuat website modern yang responsif untuk berbagai perangkat.",price:150000,rating:4.8,reviews:18,status:"Tersedia"},
@@ -125,40 +136,91 @@ const services = [
 {id:10,name:"Dimas Prakoso",major:"Teknik Informatika",initials:"DP",color:"bg-indigo-100 text-indigo-700",title:"Jasa Coding HTML, CSS dan JavaScript",category:"Programming",description:"Membantu pengembangan fitur website dan pemrograman frontend.",price:90000,rating:4.8,reviews:19,status:"Tersedia"}
 ];
 function formatPrice(price){return "Rp" + price.toLocaleString("id-ID")}
-function renderList(){
- const keyword=document.getElementById("searchInput").value.toLowerCase(),category=document.getElementById("categoryFilter").value;
- const filtered=services.filter(s=>(s.name+" "+s.title+" "+s.category+" "+s.major).toLowerCase().includes(keyword)&&(category==="Semua"||s.category===category));
- const container=document.getElementById("serviceContainer");container.innerHTML="";
- document.getElementById("resultCount").textContent=`Menampilkan ${filtered.length} layanan`;
- document.getElementById("emptyState").classList.toggle("hidden",filtered.length!==0);
- filtered.forEach(s=>{
-  const card=document.createElement("article");card.className="service-card bg-white border rounded-2xl p-5";
-  card.innerHTML=`<div class="flex items-start justify-between mb-5"><div class="w-14 h-14 ${s.color} rounded-2xl flex items-center justify-center font-bold text-lg">${s.initials}</div><span class="text-xs px-3 py-1 rounded-full ${s.status==="Tersedia"?"bg-green-100 text-green-700":"bg-red-100 text-red-600"}">${s.status}</span></div>
-  <span class="text-xs font-semibold bg-blue-50 text-blue-700 px-3 py-1 rounded-full">${s.category}</span><h3 class="font-bold text-lg mt-3 mb-2">${s.title}</h3><p class="text-sm text-slate-500 mb-4">${s.name} - ${s.major}</p>
-  <div class="flex items-center gap-2 text-sm mb-5"><i class="fa-solid fa-star text-yellow-400"></i><b>${s.rating}</b><span class="text-slate-400">(${s.reviews} ulasan)</span></div>
-  <div class="border-t pt-4 flex justify-between items-center gap-2"><div><p class="text-xs text-slate-400">Mulai dari</p><b class="text-blue-600">${formatPrice(s.price)}</b></div><button onclick="showDetailById(${s.id})" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2.5 rounded-xl text-xs font-semibold">Lihat Detail</button></div>`;
-  container.appendChild(card);
- });
+function getFreelancer(id){return services.find(s=>s.id===id)}
+
+let semuaPesan = JSON.parse(localStorage.getItem("pesanMasuk") || "null");
+if(!semuaPesan || semuaPesan.length === 0){
+    semuaPesan = [
+        { freelancerId: 1, nama: "Nadia Amalia", email: "nadia@mail.com", subjek: "Tanya Jasa Desain Logo", pesan: "Halo kak, mau tanya harga desain logo untuk UMKM berapa ya?", tanggal: "06 Nov 2026", dibaca: false },
+        { freelancerId: 2, nama: "Ahmad Fauzan", email: "fauzan@mail.com", subjek: "Order Website", pesan: "Saya mau pesan website portofolio, bisa dikerjakan berapa lama?", tanggal: "05 Nov 2026", dibaca: true },
+        { freelancerId: 3, nama: "Salsa Putri", email: "salsa@mail.com", subjek: "Kerjasama Content", pesan: "Halo, saya tertarik kerjasama untuk penulisan artikel mingguan.", tanggal: "05 Nov 2026", dibaca: false }
+    ];
+} else {
+    semuaPesan = semuaPesan.map(p=>{
+        if(!p.freelancerId){
+            const f = services.find(s=>s.name.toLowerCase()===String(p.nama||"").toLowerCase());
+            if(f) p.freelancerId = f.id;
+        }
+        return p;
+    });
 }
-function showDetailById(id){const s=services.find(item=>item.id===id);if(!s)return;sessionStorage.setItem("selectedService",JSON.stringify(s));showDetail(s)}
-function showDetail(s){
- document.getElementById("listPage").classList.add("hidden");document.getElementById("detailPage").classList.remove("hidden");
- const initial=document.getElementById("detailInitial");initial.className=`w-20 h-20 rounded-2xl flex items-center justify-center text-2xl font-extrabold shrink-0 ${s.color}`;initial.textContent=s.initials;
- const fields={detailCategory:s.category,detailTitle:s.title,detailName:s.name,detailRating:s.rating,detailReviews:`(${s.reviews} ulasan)`,detailDescription:s.description,detailPrice:formatPrice(s.price),infoName:s.name,infoMajor:s.major,infoCategory:s.category,infoStatus:s.status,summaryName:s.name,summaryCategory:s.category,summaryStatus:s.status};
- Object.entries(fields).forEach(([id,value])=>document.getElementById(id).textContent=value);
- const contact=document.getElementById("contactButton");
- if(s.status==="Tersedia"){contact.href="kontak.html";contact.classList.remove("opacity-50","pointer-events-none");contact.innerHTML='<i class="fa-solid fa-envelope mr-2"></i>Hubungi Freelancer'}
- else{contact.removeAttribute("href");contact.classList.add("opacity-50","pointer-events-none");contact.innerHTML='<i class="fa-solid fa-ban mr-2"></i>Sibuk - Tidak Tersedia'}
- window.scrollTo(0,0);
+function loadPesan(){ renderPesan(); }
+function renderPesan(){
+    const keyword = document.getElementById("searchPesan").value.toLowerCase();
+    const list = document.getElementById("listPesan");
+    const empty = document.getElementById("emptyPesan");
+    const filtered = semuaPesan.filter(p => {
+        const f = getFreelancer(p.freelancerId);
+        const text = (p.nama+" "+p.subjek+" "+p.pesan+" "+(f?f.title+" "+f.category:"")).toLowerCase();
+        return text.includes(keyword);
+    });
+    const belum = semuaPesan.filter(p => !p.dibaca).length;
+    document.getElementById("totalPesan").textContent = semuaPesan.length;
+    document.getElementById("belumDibaca").textContent = belum;
+    document.getElementById("sudahDibaca").textContent = semuaPesan.length - belum;
+    document.getElementById("badgePesan").textContent = belum;
+    list.innerHTML = "";
+    if(filtered.length === 0){ empty.classList.remove("hidden"); return; }
+    empty.classList.add("hidden");
+    filtered.forEach((p) => {
+        const f = getFreelancer(p.freelancerId);
+        const div = document.createElement("div");
+        div.className = "pesan-item " + (!p.dibaca ? "unread" : "");
+        div.innerHTML = `
+            <div class="flex justify-between items-start gap-3">
+                <div class="flex gap-3 min-w-0 flex-1">
+                    <div class="w-10 h-10 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold flex-shrink-0">${p.nama.charAt(0)}</div>
+                    <div class="min-w-0 flex-1">
+                        <p class="font-semibold text-sm">${p.nama} ${!p.dibaca ? '<span class="ml-1 text-xs bg-blue-600 text-white px-2 py-0.5 rounded-full">Baru</span>' : ''}</p>
+                        <p class="text-xs text-slate-500">${p.email} • ${p.tanggal}</p>
+                        <p class="font-semibold text-sm mt-2">${p.subjek}</p>
+                        <p class="text-sm text-slate-500 mt-1">${p.pesan}</p>
+                        ${f ? `
+                        <div class="mt-4 bg-slate-50 border border-slate-100 rounded-xl p-3 flex flex-wrap items-center gap-3">
+                            <div class="w-10 h-10 ${f.color} rounded-xl flex items-center justify-center font-bold text-sm flex-shrink-0">${f.initials}</div>
+                            <div class="flex-1 min-w-0">
+                                <p class="text-xs text-slate-400">Detail Freelancer - ${f.category} • <span class="${f.status==="Tersedia"?"text-green-600":"text-red-500"} font-semibold">${f.status}</span></p>
+                                <p class="text-sm font-bold truncate">${f.title}</p>
+                                <p class="text-xs text-slate-500">${f.name} - ${f.major} • Mulai dari <b class="text-blue-600">${formatPrice(f.price)}</b></p>
+                            </div>
+                            <button onclick="lihatDetail(${semuaPesan.indexOf(p)}, event)" class="bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold px-4 py-2.5 rounded-xl flex-shrink-0">Lihat Detail Freelancer <i class="fa-solid fa-arrow-right ml-1"></i></button>
+                        </div>` : ''}
+                    </div>
+                </div>
+                <button onclick="hapusPesan(${semuaPesan.indexOf(p)}, event)" class="text-red-400 hover:text-red-600 text-sm flex-shrink-0"><i class="fas fa-trash"></i></button>
+            </div>`;
+        div.onclick = (e) => { if(e.target.closest("button")) return; p.dibaca = true; localStorage.setItem("pesanMasuk", JSON.stringify(semuaPesan)); renderPesan(); };
+        list.appendChild(div);
+    });
 }
-function showList(){document.getElementById("detailPage").classList.add("hidden");document.getElementById("listPage").classList.remove("hidden");sessionStorage.removeItem("selectedService");window.scrollTo(0,0)}
-function toggleSidebar(){document.getElementById("sidebar").classList.toggle("-translate-x-full");document.getElementById("overlay").classList.toggle("hidden")}
-function initPage(){
- renderList();
- const selected=sessionStorage.getItem("selectedService");
- if(selected){try{const s=JSON.parse(selected);const match=services.find(x=>x.id===Number(s.id));if(match)showDetail(match)}catch(e){sessionStorage.removeItem("selectedService")}}
-}
-initPage();
-</script>
-</body>
-</html>
+/* INI KUNCINYA: BUKA DETAIL DI DALAM pesan.html, BUKAN PINDAH HALAMAN */
+function lihatDetail(pesanIndex, e){
+    if(e) e.stopPropagation();
+    const p = semuaPesan[pesanIndex];
+    if(!p) return;
+    p.dibaca = true;
+    localStorage.setItem("pesanMasuk", JSON.stringify(semuaPesan));
+    const s = getFreelancer(p.freelancerId);
+    if(!s) return;
+    // Simpan juga biar kalau klik "Buka di Halaman Detail" tetap nyambung ke detail.html
+    sessionStorage.setItem("selectedService", JSON.stringify(s));
+    // Isi pesan pengirim
+    document.getElementById("detailPesanNama").textContent = p.nama;
+    document.getElementById("detailPesanEmail").textContent = p.email + " • " + p.tanggal;
+    document.getElementById("detailPesanSubjek").textContent = p.subjek;
+    document.getElementById("detailPesanIsi").textContent = p.pesan;
+    // Isi detail freelancer - SAMA KAYAK detail.html
+    const initial = document.getElementById("detailInitial");
+    initial.className = `w-20 h-20 rounded-2xl flex items-center justify-center text-2xl font-extrabold shrink-0 ${s.color}`;
+    initial.textContent = s.initials;
+    const fields =
