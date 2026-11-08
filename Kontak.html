@@ -11,13 +11,35 @@
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
         <link rel="stylesheet" href="css/kontak.css">
-        <style>
-            body { font-family: 'inter', sans-serif; bacground: #f8fafc; }
-            . sidebar-link { display: flex; align-items: center; gap: 12px; padding 12px 16px; border-radius: 10p; color: #64748; font-size: 14px; font-weight: 500; transition: .2s; }
-             .sidebar-link:hover, .sidebar-link.active { background: #eff6ff; color: #2563eb; font-weight: 600; }
-    .map-card { background: white; border: 1px solid #e2e8f0; border-radius: 16px; padding: 20px; }
-        </style>
-     </head>
+            <style>
+    body {
+        font-family: 'Inter', sans-serif;
+        background: #f8fafc;
+    }
+
+    .sidebar-link {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 12px 16px;
+        border-radius: 10px;
+        color: #64748b;
+        font-size: 14px;
+        font-weight: 500;
+        text-decoration: none;
+        transition: .2s;
+    }
+
+    .sidebar-link:hover,
+    .sidebar-link.active {
+        background: #eff6ff;
+        color: #2563eb;
+        font-weight: 600;
+    }
+</style>
+
 
      <body class="text-slate-800">
 
@@ -51,48 +73,58 @@
             </button>
              </div>
              
-              <p class="text-xs font-bold text-slate-400 uppercase mb-3">
-            Menu Utama
-        </p>
+              <!-- MAIN MENU -->
+<div class="mt-10">
+    <p class="text-xs font-bold text-slate-400 uppercase mb-4">
+        MAIN MENU
+    </p>
 
-        <nav class="space-y-1">
+    <nav class="flex flex-col gap-2 w-full">
+        <a href="dashboard.html" class="sidebar-link">
+            <i class="fa-solid fa-house w-5"></i>
+            Dashboard
+        </a>
 
-            <a href="dashboard.html" class="sidebar-link">
-                <i class="fa-solid fa-house w-5"></i>
-                Dashboard
-            </a>
-
-           <a href="freelance.html" class="sidebar-link">
+        <a href="freelance.html" class="sidebar-link">
             <i class="fa-solid fa-briefcase w-5"></i>
             Freelance
-           </a>
+        </a>
 
-           <a href="peta.html" class="sidebar-link">
-                <i class="fa-solid fa-map-location-dot w-5"></i>
-                Peta Freelancer
-            </a>
+        <a href="peta.html" class="sidebar-link">
+            <i class="fa-solid fa-map-location-dot w-5"></i>
+            Peta Freelancer
+        </a>
 
-            <a href="detail.html" class="sidebar-link">
-                <i class="fa-solid fa-circle-info w-5"></i> Detail
-            </a>
-            
-            <a href="kontak.html"  class="sidebar-link active">
-                <i class="fa-regular fa-envelope w-5"></i>
-                Kontak
-            </a>
-            
-             <a href="pesan.html" class="sidebar-link">
-                <i class="fa-regular fa-message w-5"></i>
-                Pesan Masuk
-            </a>
+        <a href="detail.html" class="sidebar-link">
+            <i class="fa-solid fa-circle-info w-5"></i>
+            Detail
+        </a>
+    </nav>
+</div>
 
-            <a href="login.html" class="sidebar-link">
-                <i class="fa-solid fa-right-from-bracket w-5"></i>
-                Keluar
-            </a>
+<!-- OTHERS -->
+<div class="mt-8">
+    <p class="text-xs font-bold text-slate-400 uppercase mb-4">
+        OTHERS
+    </p>
 
+    <nav class="flex flex-col gap-2 w-full">
+        <a href="kontak.html" class="sidebar-link active">
+            <i class="fa-regular fa-envelope w-5"></i>
+            Kontak
+        </a>
 
-        </nav>
+        <a href="pesan.html" class="sidebar-link">
+            <i class="fa-regular fa-message w-5"></i>
+            Pesan Masuk
+        </a>
+
+        <a href="login.html" class="sidebar-link">
+            <i class="fa-solid fa-right-from-bracket w-5"></i>
+            Keluar
+        </a>
+    </nav>
+</div>
 
         <div  class="mt-auto bg-blue-50 rounded-xl p-4">
             <p class="font-semibold text-sm text-blue-800">
