@@ -1,65 +1,83 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Detail Freelancer | Campus Freelancer Network</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <script>tailwind.config={theme:{extend:{colors:{primary:"#2563EB",navy:"#172554",background:"#F8FAFC"}}}};</script>
-  <style>
-    *{font-family:Inter,sans-serif}body{background:#F8FAFC}.sidebar{transition:transform .3s ease}
-    .nav-link{transition:.2s}.nav-link:hover,.nav-link.active{background:#EFF6FF;color:#2563EB}
-    .service-card{transition:.25s}.service-card:hover{transform:translateY(-4px);box-shadow:0 12px 28px #0f172a12}
-    @media(max-width:767px){.sidebar{transform:translateX(-100%);z-index:50}.sidebar.show{transform:translateX(0)}}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Detail Freelancer | Campus Freelancer Network</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+body { font-family: 'Inter', sans-serif; background: #F8FAFC; }
+.sidebar-link { display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-radius: 10px; color: #64748b; font-size: 14px; font-weight: 500; transition: .2s; }
+.sidebar-link:hover, .sidebar-link.active { background: #eff6ff; color: #2563eb; font-weight: 600; }
+.service-card { transition: .25s; }
+.service-card:hover { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(15,23,42,.07); }
+</style>
 </head>
 <body class="text-slate-800">
-  <div id="overlay" onclick="toggleSidebar()" class="fixed inset-0 bg-black/40 z-40 hidden"></div>
-  <aside id="sidebar" class="sidebar fixed top-0 left-0 w-64 h-screen bg-white border-r border-slate-200 p-6 flex flex-col">
-    <div class="flex items-center gap-3 mb-10"><div class="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center text-white"><i class="fa-solid fa-briefcase"></i></div><div><h1 class="font-extrabold text-lg text-navy">Campus</h1><p class="text-xs text-slate-500">Freelancer Network</p></div></div>
-    <p class="text-xs font-bold text-slate-400 mb-3">MENU UTAMA</p>
-    <nav class="space-y-2">
-      <a href="dashboard.html" class="nav-link flex items-center gap-3 p-3 rounded-xl text-slate-600"><i class="fa-solid fa-house w-5"></i><span class="text-sm font-medium">Dashboard</span></a>
-      <a href="freelance.html" class="nav-link flex items-center gap-3 p-3 rounded-xl text-slate-600"><i class="fa-solid fa-briefcase w-5"></i><span class="text-sm font-medium">Freelance</span></a>
-      <a href="detail.html" class="nav-link active flex items-center gap-3 p-3 rounded-xl"><i class="fa-solid fa-file-lines w-5"></i><span class="text-sm font-semibold">Detail Freelancer</span></a>
-      <a href="peta.html" class="nav-link flex items-center gap-3 p-3 rounded-xl text-slate-600"><i class="fa-solid fa-map-location-dot w-5"></i><span class="text-sm font-medium">Peta</span></a>
-      <a href="kontak.html" class="nav-link flex items-center gap-3 p-3 rounded-xl text-slate-600"><i class="fa-solid fa-address-book w-5"></i><span class="text-sm font-medium">Kontak</span></a>
-      <a href="pesan.html" class="nav-link flex items-center gap-3 p-3 rounded-xl text-slate-600"><i class="fa-solid fa-envelope w-5"></i><span class="text-sm font-medium">Pesan Masuk</span></a>
+<div id="overlay" onclick="toggleSidebar()" class="fixed inset-0 bg-black/40 z-40 hidden md:hidden"></div>
+<div class="min-h-screen flex">
+<aside id="sidebar" class="fixed md:sticky top-0 left-0 z-50 w-64 h-screen bg-white border-r border-slate-200 flex flex-col p-5 -translate-x-full md:translate-x-0">
+    <div class="flex items-center gap-3 mb-9">
+        <div class="bg-blue-600 text-white w-10 h-10 rounded-xl flex items-center justify-center"><i class="fas fa-graduation-cap"></i></div>
+        <div><h1 class="font-extrabold text-lg">Campus<span class="text-blue-600">Freelance</span></h1><p class="text-xs text-slate-400">Network Platform</p></div>
+        <button onclick="toggleSidebar()" class="ml-auto md:hidden text-slate-500 text-xl"><i class="fas fa-xmark"></i></button>
+    </div>
+    <p class="text-xs font-bold text-slate-400 uppercase mb-3">Menu Utama</p>
+    <nav class="space-y-1">
+        <a href="dashboard.html" class="sidebar-link"><i class="fas fa-house w-5"></i> Dashboard</a>
+        <a href="freelance.html" class="sidebar-link"><i class="fas fa-briefcase w-5"></i> Freelance</a>
+        <a href="detail.html" class="sidebar-link active"><i class="fas fa-id-card w-5"></i> Detail Freelancer</a>
+        <a href="peta.html" class="sidebar-link"><i class="fas fa-map-location-dot w-5"></i> Peta Freelancer</a>
+        <a href="kontak.html" class="sidebar-link"><i class="fas fa-envelope w-5"></i> Kontak</a>
+        <a href="pesan.html" class="sidebar-link"><i class="fas fa-inbox w-5"></i> Pesan Masuk</a>
+        <a href="login.html" class="sidebar-link"><i class="fas fa-right-from-bracket w-5"></i> Keluar</a>
     </nav>
-    <div class="mt-auto border-t border-slate-100 pt-5"><a href="login.html" class="nav-link flex items-center gap-3 p-3 rounded-xl text-red-500"><i class="fa-solid fa-right-from-bracket w-5"></i><span class="text-sm font-medium">Keluar</span></a></div>
-  </aside>
-
-  <main class="md:ml-64 min-h-screen">
-    <header class="bg-white border-b border-slate-200 px-5 md:px-8 py-4 flex items-center justify-between sticky top-0 z-30">
-      <div class="flex items-center gap-4"><button onclick="toggleSidebar()" class="md:hidden text-xl text-slate-600"><i class="fa-solid fa-bars"></i></button><div><h2 class="font-bold text-lg text-navy">Detail Freelancer</h2><p class="text-xs text-slate-500">Informasi layanan freelancer mahasiswa</p></div></div>
-      <div class="flex items-center gap-3"><div class="text-right hidden sm:block"><p class="text-sm font-bold">Rinnheree</p><p class="text-xs text-slate-500">Mahasiswa</p></div><div class="w-10 h-10 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center font-bold">R</div></div>
+    <div class="mt-auto bg-blue-50 rounded-xl p-4"><p class="font-semibold text-sm text-blue-800">Campus Freelancer</p><p class="text-xs text-blue-600 mt-1">Hubungkan bakat dengan peluang.</p></div>
+</aside>
+<main class="flex-1 min-w-0">
+    <header class="h-20 bg-white border-b border-slate-200 flex items-center justify-between px-5 md:px-8 sticky top-0 z-30">
+        <div class="flex items-center gap-4">
+            <button onclick="toggleSidebar()" class="md:hidden text-xl text-slate-600"><i class="fa-solid fa-bars"></i></button>
+            <div><p class="text-xs text-slate-400">Menu / Detail</p><h2 class="font-bold text-lg">Detail Freelancer</h2></div>
+        </div>
+        <div class="flex items-center gap-3">
+            <div class="hidden sm:block text-right"><p class="text-sm font-bold">Jeni Walilo</p><p class="text-xs text-slate-400">Mahasiswa</p></div>
+            <div class="w-10 h-10 bg-blue-100 text-blue-700 rounded-full flex items-center justify-center font-bold">J</div>
+        </div>
     </header>
-
     <section class="p-5 md:p-8">
       <div id="listPage">
-        <div class="mb-8"><p class="text-sm text-blue-600 font-semibold mb-2">CAMPUS FREELANCER NETWORK</p><h1 class="text-2xl md:text-3xl font-extrabold text-navy mb-2">Daftar Detail Freelancer</h1><p class="text-sm text-slate-500">Pilih freelancer untuk melihat informasi layanan secara lengkap.</p></div>
+        <div class="mb-8"><p class="text-sm text-blue-600 font-semibold mb-2">CAMPUS FREELANCER NETWORK</p><h1 class="text-2xl md:text-3xl font-extrabold mb-2">Daftar Detail Freelancer</h1><p class="text-sm text-slate-500">Pilih freelancer untuk melihat informasi layanan secara lengkap.</p></div>
         <div class="bg-white border rounded-2xl p-5 mb-6 flex flex-col md:flex-row gap-3">
           <input id="searchInput" oninput="renderList()" type="text" placeholder="Cari nama atau layanan freelancer..." class="flex-1 border rounded-xl px-4 py-3 text-sm outline-none focus:border-blue-500">
-          <select id="categoryFilter" onchange="renderList()" class="border rounded-xl px-4 py-3 text-sm outline-none"><option value="Semua">Semua Kategori</option><option>Design</option><option>Web Development</option><option>Programming</option><option>Writing</option><option>Video Editing</option></select>
+          <select id="categoryFilter" onchange="renderList()" class="border rounded-xl px-4 py-3 text-sm outline-none">
+            <option value="Semua">Semua Kategori</option>
+            <option>Web Development</option>
+            <option>Programming</option>
+            <option>Design</option>
+            <option>Beauty & Content</option>
+            <option>Video Editing</option>
+            <option>Writing</option>
+            <option>Digital Marketing</option>
+          </select>
         </div>
-        <div class="flex justify-between items-center mb-5"><div><h2 class="font-bold text-lg text-navy">Daftar Freelancer</h2><p id="resultCount" class="text-xs text-slate-500 mt-1"></p></div><a href="freelance.html" class="text-sm text-blue-600 font-semibold hover:underline">Halaman Freelance <i class="fa-solid fa-arrow-right ml-1"></i></a></div>
+        <div class="flex justify-between items-center mb-5"><div><h2 class="font-bold text-lg">Daftar Freelancer</h2><p id="resultCount" class="text-xs text-slate-500 mt-1"></p></div><a href="freelance.html" class="text-sm text-blue-600 font-semibold hover:underline">Halaman Freelance <i class="fa-solid fa-arrow-right ml-1"></i></a></div>
         <div id="serviceContainer" class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5"></div>
         <div id="emptyState" class="hidden text-center py-12"><i class="fa-solid fa-folder-open text-5xl text-slate-300"></i><h3 class="font-bold mt-4">Data tidak ditemukan</h3><p class="text-sm text-slate-500 mt-2">Coba kata kunci lainnya.</p></div>
       </div>
-
       <div id="detailPage" class="hidden">
         <button onclick="showList()" class="text-blue-600 font-semibold text-sm mb-6 hover:underline"><i class="fa-solid fa-arrow-left mr-2"></i>Kembali ke Daftar Freelancer</button>
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
           <div class="lg:col-span-2 bg-white border rounded-2xl p-6 md:p-8">
             <div class="flex flex-col sm:flex-row gap-5 items-start mb-7">
               <div id="detailInitial" class="w-20 h-20 rounded-2xl flex items-center justify-center text-2xl font-extrabold shrink-0"></div>
-              <div class="flex-1"><span id="detailCategory" class="text-xs font-semibold bg-blue-50 text-blue-700 px-3 py-1.5 rounded-full"></span><h1 id="detailTitle" class="text-2xl font-extrabold text-navy mt-3"></h1><p id="detailName" class="text-slate-500 mt-2"></p><div class="flex items-center gap-2 mt-3 text-sm"><i class="fa-solid fa-star text-yellow-400"></i><b id="detailRating"></b><span id="detailReviews" class="text-slate-400"></span></div></div>
+              <div class="flex-1"><span id="detailCategory" class="text-xs font-semibold bg-blue-50 text-blue-700 px-3 py-1.5 rounded-full"></span><h1 id="detailTitle" class="text-2xl font-extrabold mt-3"></h1><p id="detailName" class="text-slate-500 mt-2"></p><div class="flex items-center gap-2 mt-3 text-sm"><i class="fa-solid fa-star text-yellow-400"></i><b id="detailRating"></b><span id="detailReviews" class="text-slate-400"></span></div></div>
             </div>
             <hr class="border-slate-100 mb-6">
-            <h2 class="font-bold text-lg text-navy mb-3">Deskripsi Layanan</h2><p id="detailDescription" class="text-sm text-slate-600 leading-7 mb-7"></p>
-            <h2 class="font-bold text-lg text-navy mb-4">Informasi Freelancer</h2>
+            <h2 class="font-bold text-lg mb-3">Deskripsi Layanan</h2><p id="detailDescription" class="text-sm text-slate-600 leading-7 mb-7"></p>
+            <h2 class="font-bold text-lg mb-4">Informasi Freelancer</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div class="bg-slate-50 rounded-xl p-4"><p class="text-xs text-slate-400 mb-2">Nama Freelancer</p><p id="infoName" class="font-semibold text-sm"></p></div>
               <div class="bg-slate-50 rounded-xl p-4"><p class="text-xs text-slate-400 mb-2">Program Studi</p><p id="infoMajor" class="font-semibold text-sm"></p></div>
@@ -68,7 +86,7 @@
             </div>
           </div>
           <div class="bg-white border rounded-2xl p-6 h-fit">
-            <h2 class="font-bold text-lg text-navy mb-5">Ringkasan Layanan</h2><p class="text-xs text-slate-400 mb-2">Harga Mulai Dari</p><h2 id="detailPrice" class="text-2xl font-extrabold text-blue-600 mb-5"></h2>
+            <h2 class="font-bold text-lg mb-5">Ringkasan Layanan</h2><p class="text-xs text-slate-400 mb-2">Harga Mulai Dari</p><h2 id="detailPrice" class="text-2xl font-extrabold text-blue-600 mb-5"></h2>
             <div class="border-t border-slate-100 pt-5 space-y-4">
               <div class="flex justify-between gap-3 text-sm"><span class="text-slate-500">Freelancer</span><b id="summaryName" class="text-right"></b></div>
               <div class="flex justify-between gap-3 text-sm"><span class="text-slate-500">Kategori</span><b id="summaryCategory" class="text-right"></b></div>
@@ -80,23 +98,23 @@
         </div>
       </div>
     </section>
-  </main>
-
+</main>
+</div>
 <script>
-/* Data harus sama dengan freelance.html */
+/* DATA INI PERSIS SAMA DENGAN freelance.html - JANGAN DIUBAH SENDIRI */
 const services = [
- {id:1,name:"Alya Putri",major:"Sistem Informasi",initials:"AP",color:"bg-purple-100 text-purple-700",title:"Desain UI/UX Aplikasi",category:"Design",description:"Membantu membuat desain UI/UX aplikasi yang modern, menarik, dan mudah digunakan. Layanan meliputi wireframe, prototype, serta desain tampilan aplikasi.",price:150000,rating:4.9,reviews:24,status:"Tersedia"},
- {id:2,name:"Rafi Akbar",major:"Teknik Informatika",initials:"RA",color:"bg-blue-100 text-blue-700",title:"Pembuatan Website",category:"Web Development",description:"Melayani pembuatan website sederhana hingga website profil bisnis dengan tampilan responsif dan desain yang menarik.",price:250000,rating:4.8,reviews:18,status:"Tersedia"},
- {id:3,name:"Nadia Safitri",major:"Sistem Informasi",initials:"NS",color:"bg-pink-100 text-pink-700",title:"Desain Poster dan Feed",category:"Design",description:"Membuat desain poster promosi, feed Instagram, dan konten visual untuk kebutuhan organisasi, acara, maupun bisnis.",price:75000,rating:4.9,reviews:31,status:"Tersedia"},
- {id:4,name:"Dimas Pratama",major:"Teknik Informatika",initials:"DP",color:"bg-green-100 text-green-700",title:"Jasa Programming Java",category:"Programming",description:"Membantu pembuatan program Java sederhana, aplikasi berbasis console, serta latihan pemrograman berorientasi objek.",price:120000,rating:4.7,reviews:15,status:"Tersedia"},
- {id:5,name:"Citra Maharani",major:"Ilmu Komunikasi",initials:"CM",color:"bg-orange-100 text-orange-700",title:"Penulisan Artikel",category:"Writing",description:"Menyediakan jasa penulisan artikel, caption media sosial, dan konten informatif dengan bahasa yang jelas dan menarik.",price:50000,rating:4.8,reviews:20,status:"Tersedia"},
- {id:6,name:"Fajar Ramadhan",major:"Desain Komunikasi Visual",initials:"FR",color:"bg-indigo-100 text-indigo-700",title:"Editing Video Promosi",category:"Video Editing",description:"Melayani editing video promosi, video pendek, dan konten media sosial dengan transisi serta audio yang sesuai.",price:100000,rating:4.8,reviews:17,status:"Tersedia"},
- {id:7,name:"Salsa Amelia",major:"Sistem Informasi",initials:"SA",color:"bg-rose-100 text-rose-700",title:"Desain UI/UX Aplikasi",category:"Design",description:"Membantu merancang antarmuka aplikasi yang sederhana, konsisten, dan nyaman digunakan. Cocok untuk prototype proyek mahasiswa.",price:175000,rating:4.9,reviews:12,status:"Tersedia"},
- {id:8,name:"Bagas Saputra",major:"Teknik Informatika",initials:"BS",color:"bg-cyan-100 text-cyan-700",title:"Pembuatan Website",category:"Web Development",description:"Melayani pembuatan halaman website menggunakan HTML, CSS, JavaScript, dan framework sesuai kebutuhan proyek.",price:350000,rating:4.6,reviews:9,status:"Tidak Tersedia"},
- {id:9,name:"Meylani Putri",major:"Ilmu Komunikasi",initials:"MP",color:"bg-amber-100 text-amber-700",title:"Penulisan Artikel",category:"Writing",description:"Membantu menyusun artikel blog, deskripsi produk, dan caption promosi dengan gaya bahasa yang sesuai target pembaca.",price:85000,rating:4.7,reviews:14,status:"Tersedia"},
- {id:10,name:"Kevin Maulana",major:"Teknik Informatika",initials:"KM",color:"bg-teal-100 text-teal-700",title:"Jasa Programming Java",category:"Programming",description:"Menyediakan bantuan pembuatan aplikasi Java sederhana, perbaikan error, dan pengembangan program berbasis objek.",price:180000,rating:4.9,reviews:22,status:"Tersedia"}
+{id:1,name:"Nadia Amalia",major:"Sistem Informasi",initials:"NA",color:"bg-purple-100 text-purple-700",title:"Desain Logo dan Branding Bisnis",category:"Design",description:"Membantu membuat logo profesional untuk bisnis, organisasi, dan usaha kecil.",price:50000,rating:4.9,reviews:24,status:"Sibuk"},
+{id:2,name:"Ahmad Fauzan",major:"Teknik Informatika",initials:"AF",color:"bg-blue-100 text-blue-700",title:"Pembuatan Website Responsif",category:"Web Development",description:"Membuat website modern yang responsif untuk berbagai perangkat.",price:150000,rating:4.8,reviews:18,status:"Tersedia"},
+{id:3,name:"Salsa Putri",major:"Sistem Informasi",initials:"SP",color:"bg-orange-100 text-orange-700",title:"Jasa Penulisan Artikel",category:"Writing",description:"Menulis artikel informatif, deskripsi produk, dan konten digital.",price:35000,rating:4.7,reviews:15,status:"Tersedia"},
+{id:4,name:"Rizky Pratama",major:"Teknik Informatika",initials:"RP",color:"bg-green-100 text-green-700",title:"Video Editing Media Sosial",category:"Video Editing",description:"Editing video pendek untuk Instagram, TikTok, dan promosi.",price:75000,rating:4.9,reviews:31,status:"Tersedia"},
+{id:5,name:"Dinda Maharani",major:"Desain Komunikasi Visual",initials:"DM",color:"bg-pink-100 text-pink-700",title:"Desain Poster dan Feed Instagram",category:"Design",description:"Desain visual kreatif untuk promosi acara dan produk.",price:45000,rating:4.8,reviews:20,status:"Tersedia"},
+{id:6,name:"Fajar Ramadhan",major:"Teknik Informatika",initials:"FR",color:"bg-indigo-100 text-indigo-700",title:"Pembuatan Database MySQL",category:"Programming",description:"Merancang database dan query SQL untuk kebutuhan proyek.",price:85000,rating:4.6,reviews:12,status:"Tersedia"},
+{id:7,name:"Aulia Safitri",major:"Ilmu Komunikasi",initials:"AS",color:"bg-yellow-100 text-yellow-700",title:"Copywriting Konten Promosi",category:"Writing",description:"Membuat teks promosi yang menarik untuk produk dan layanan.",price:40000,rating:4.9,reviews:27,status:"Tersedia"},
+{id:8,name:"Kevin Saputra",major:"Teknik Informatika",initials:"KS",color:"bg-cyan-100 text-cyan-700",title:"Editing Video Presentasi",category:"Video Editing",description:"Mengedit video presentasi dan tugas multimedia.",price:60000,rating:4.7,reviews:14,status:"Sibuk"},
+{id:9,name:"Putra Aditya",major:"Sistem Informasi",initials:"PA",color:"bg-blue-100 text-blue-700",title:"Pembuatan Website Portofolio",category:"Web Development",description:"Membuat website portofolio pribadi dengan desain modern.",price:150000,rating:4.9,reviews:16,status:"Tersedia"},
+{id:10,name:"Dimas Prakoso",major:"Teknik Informatika",initials:"DP",color:"bg-indigo-100 text-indigo-700",title:"Jasa Coding HTML, CSS dan JavaScript",category:"Programming",description:"Membantu pengembangan fitur website dan pemrograman frontend.",price:90000,rating:4.8,reviews:19,status:"Tersedia"}
 ];
-function formatPrice(price){return new Intl.NumberFormat("id-ID",{style:"currency",currency:"IDR",maximumFractionDigits:0}).format(price)}
+function formatPrice(price){return "Rp" + price.toLocaleString("id-ID")}
 function renderList(){
  const keyword=document.getElementById("searchInput").value.toLowerCase(),category=document.getElementById("categoryFilter").value;
  const filtered=services.filter(s=>(s.name+" "+s.title+" "+s.category+" "+s.major).toLowerCase().includes(keyword)&&(category==="Semua"||s.category===category));
@@ -106,7 +124,7 @@ function renderList(){
  filtered.forEach(s=>{
   const card=document.createElement("article");card.className="service-card bg-white border rounded-2xl p-5";
   card.innerHTML=`<div class="flex items-start justify-between mb-5"><div class="w-14 h-14 ${s.color} rounded-2xl flex items-center justify-center font-bold text-lg">${s.initials}</div><span class="text-xs px-3 py-1 rounded-full ${s.status==="Tersedia"?"bg-green-100 text-green-700":"bg-red-100 text-red-600"}">${s.status}</span></div>
-  <span class="text-xs font-semibold bg-blue-50 text-blue-700 px-3 py-1 rounded-full">${s.category}</span><h3 class="font-bold text-lg text-navy mt-3 mb-2">${s.title}</h3><p class="text-sm text-slate-500 mb-4">${s.name}</p>
+  <span class="text-xs font-semibold bg-blue-50 text-blue-700 px-3 py-1 rounded-full">${s.category}</span><h3 class="font-bold text-lg mt-3 mb-2">${s.title}</h3><p class="text-sm text-slate-500 mb-4">${s.name} - ${s.major}</p>
   <div class="flex items-center gap-2 text-sm mb-5"><i class="fa-solid fa-star text-yellow-400"></i><b>${s.rating}</b><span class="text-slate-400">(${s.reviews} ulasan)</span></div>
   <div class="border-t pt-4 flex justify-between items-center gap-2"><div><p class="text-xs text-slate-400">Mulai dari</p><b class="text-blue-600">${formatPrice(s.price)}</b></div><button onclick="showDetailById(${s.id})" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2.5 rounded-xl text-xs font-semibold">Lihat Detail</button></div>`;
   container.appendChild(card);
@@ -120,11 +138,11 @@ function showDetail(s){
  Object.entries(fields).forEach(([id,value])=>document.getElementById(id).textContent=value);
  const contact=document.getElementById("contactButton");
  if(s.status==="Tersedia"){contact.href="kontak.html";contact.classList.remove("opacity-50","pointer-events-none");contact.innerHTML='<i class="fa-solid fa-envelope mr-2"></i>Hubungi Freelancer'}
- else{contact.removeAttribute("href");contact.classList.add("opacity-50","pointer-events-none");contact.innerHTML='<i class="fa-solid fa-ban mr-2"></i>Tidak Tersedia'}
+ else{contact.removeAttribute("href");contact.classList.add("opacity-50","pointer-events-none");contact.innerHTML='<i class="fa-solid fa-ban mr-2"></i>Sibuk - Tidak Tersedia'}
  window.scrollTo(0,0);
 }
 function showList(){document.getElementById("detailPage").classList.add("hidden");document.getElementById("listPage").classList.remove("hidden");sessionStorage.removeItem("selectedService");window.scrollTo(0,0)}
-function toggleSidebar(){document.getElementById("sidebar").classList.toggle("show");document.getElementById("overlay").classList.toggle("hidden")}
+function toggleSidebar(){document.getElementById("sidebar").classList.toggle("-translate-x-full");document.getElementById("overlay").classList.toggle("hidden")}
 function initPage(){
  renderList();
  const selected=sessionStorage.getItem("selectedService");
