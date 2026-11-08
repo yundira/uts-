@@ -3,129 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard | Campus Freelancer Network</title>
+    <title>Dashboard - Campus Freelancer</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <script src="https://code.highcharts.com/highcharts.js"></script>
     <style>
-        body { font-family: 'Inter', sans-serif; background: #F8FAFC; }
-        .sidebar { transition: transform 0.3s ease; }
-        .nav-link { transition: all 0.2s ease; }
-        .nav-link:hover, .nav-link.active { background: #EFF6FF; color: #2563EB; }
-        .stat-card { transition: transform 0.2s ease, box-shadow 0.2s ease; }
-        .stat-card:hover { transform: translateY(-4px); box-shadow: 0 10px 25px rgba(15, 23, 42, 0.07); }
-        @media (max-width: 767px) {
-            .sidebar { transform: translateX(-100%); }
-            .sidebar.show { transform: translateX(0); }
-        }
+        body { font-family: 'Inter', sans-serif; background: #f8fafc; }
+        .sidebar-link { display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-radius: 10px; color: #64748b; font-size: 14px; font-weight: 500; transition: .2s; }
+        .sidebar-link:hover, .sidebar-link.active { background: #eff6ff; color: #2563eb; font-weight: 600; }
+        .map-card { background: white; border: 1px solid #e2e8f0; border-radius: 16px; padding: 20px; }
     </style>
 </head>
 <body class="text-slate-800">
+<div class="min-h-screen flex">
     <div id="overlay" onclick="toggleSidebar()" class="fixed inset-0 bg-black/40 z-40 hidden md:hidden"></div>
-
-    <aside id="sidebar" class="sidebar fixed top-0 left-0 z-50 w-64 h-screen bg-white border-r border-slate-200 flex flex-col">
-        <div class="h-20 flex items-center px-6 border-b border-slate-100">
-            <div class="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center text-white"><i class="fa-solid fa-briefcase text-lg"></i></div>
-            <div class="ml-3"><h1 class="font-extrabold text-slate-900 text-sm">Campus<span class="text-blue-600">Freelancer</span></h1><p class="text-xs text-slate-400">Student Marketplace</p></div>
-            <button onclick="toggleSidebar()" class="ml-auto md:hidden text-slate-500"><i class="fa-solid fa-xmark"></i></button>
+    <aside id="sidebar" class="fixed md:sticky top-0 left-0 z-50 w-64 h-screen bg-white border-r border-slate-200 flex flex-col p-5 -translate-x-full md:translate-x-0">
+        <div class="flex items-center gap-3 mb-9">
+            <div class="bg-blue-600 text-white w-10 h-10 rounded-xl flex items-center justify-center"><i class="fas fa-graduation-cap"></i></div>
+            <div><h1 class="font-extrabold text-lg">Campus<span class="text-blue-600">Freelance</span></h1><p class="text-xs text-slate-400">Network Platform</p></div>
+            <button onclick="toggleSidebar()" class="ml-auto md:hidden text-slate-500 text-xl"><i class="fas fa-xmark"></i></button>
         </div>
-        <nav class="flex-1 px-4 py-6 overflow-y-auto">
-            <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider px-3 mb-3">Main Menu</p>
-            <div class="space-y-1">
-                <!-- INI YANG UDAH DIBENERIN, TADI NYA dashbord.html -->
-                <a href="dashboard.html" class="nav-link active flex items-center gap-3 px-3 py-3 rounded-xl text-sm font-semibold"><i class="fa-solid fa-house w-5"></i>Dashboard</a>
-                <a href="freelance.html" class="nav-link flex items-center gap-3 px-3 py-3 rounded-xl text-sm text-slate-600"><i class="fa-solid fa-briefcase w-5"></i>Freelance</a>
-                <a href="peta.html" class="nav-link flex items-center gap-3 px-3 py-3 rounded-xl text-sm text-slate-600"><i class="fa-solid fa-map-location-dot w-5"></i>Peta Freelancer</a>
-            </div>
-            <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider px-3 mt-8 mb-3">Others</p>
-            <div class="space-y-1">
-                <a href="kontak.html" class="nav-link flex items-center gap-3 px-3 py-3 rounded-xl text-sm text-slate-600"><i class="fa-solid fa-headset w-5"></i>Kontak</a>
-                <a href="pesan.html" class="nav-link flex items-center gap-3 px-3 py-3 rounded-xl text-sm text-slate-600"><i class="fa-solid fa-inbox w-5"></i>Pesan Masuk</a>
-                <a href="login.html" class="nav-link flex items-center gap-3 px-3 py-3 rounded-xl text-sm text-slate-600"><i class="fa-solid fa-right-from-bracket w-5"></i>Keluar</a>
-            </div>
+        <p class="text-xs font-bold text-slate-400 uppercase mb-3">Menu Utama</p>
+        <nav class="space-y-1">
+            <a href="dashboard.html" class="sidebar-link active"><i class="fas fa-house w-5"></i> Dashboard</a>
+            <a href="freelance.html" class="sidebar-link"><i class="fas fa-briefcase w-5"></i> Freelance</a>
+            <a href="peta.html" class="sidebar-link"><i class="fas fa-map-location-dot w-5"></i> Peta Freelancer</a>
+            <a href="kontak.html" class="sidebar-link"><i class="fas fa-envelope w-5"></i> Kontak</a>
+            <a href="pesan.html" class="sidebar-link"><i class="fas fa-inbox w-5"></i> Pesan Masuk</a>
+            <a href="login.html" class="sidebar-link"><i class="fas fa-right-from-bracket w-5"></i> Keluar</a>
         </nav>
-        <div class="p-4 border-t border-slate-100">
-            <div class="bg-blue-50 rounded-xl p-4"><div class="flex items-center gap-2 text-blue-700"><i class="fa-solid fa-circle-info"></i><span class="text-xs font-bold">Campus Freelancer</span></div><p class="text-xs text-slate-500 mt-2 leading-relaxed">Kembangkan keahlianmu dan temukan peluang baru bersama mahasiswa lainnya.</p></div>
-        </div>
+        <div class="mt-auto bg-blue-50 rounded-xl p-4"><p class="font-semibold text-sm text-blue-800">Campus Freelancer</p><p class="text-xs text-blue-600 mt-1">Hubungkan bakat dengan peluang.</p></div>
     </aside>
-
-    <main class="md:ml-64 min-h-screen">
-        <header class="h-20 bg-white border-b border-slate-200 flex items-center justify-between px-5 md:px-8 sticky top-0 z-30">
-            <button onclick="toggleSidebar()" class="md:hidden text-slate-600 text-xl"><i class="fa-solid fa-bars"></i></button>
-            <div class="flex items-center gap-4 ml-auto">
-                <div class="relative">
-                    <button onclick="showNotification()" class="relative w-10 h-10 rounded-full hover:bg-slate-100 text-slate-500"><i class="fa-regular fa-bell text-lg"></i><span id="notificationBadge" class="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full"></span></button>
-                    <div id="notificationPanel" class="hidden absolute right-0 top-12 w-80 max-w-[90vw] bg-white rounded-2xl shadow-xl border border-slate-200 z-50">
-                        <div class="flex justify-between items-center p-4 border-b"><h3 class="font-bold text-slate-800">Notifikasi</h3><button onclick="markAllRead()" class="text-xs text-blue-600 font-semibold">Tandai Dibaca</button></div>
-                        <div class="p-4 space-y-4">
-                            <div class="flex gap-3"><i class="fa-solid fa-user-plus text-blue-600 mt-1"></i><div><p class="text-sm font-semibold">Freelancer Baru</p><p class="text-xs text-slate-500">Ada freelancer baru bergabung.</p></div></div>
-                            <div class="flex gap-3"><i class="fa-solid fa-briefcase text-green-600 mt-1"></i><div><p class="text-sm font-semibold">Peluang Freelance</p><p class="text-xs text-slate-500">Peluang jasa baru tersedia.</p></div></div>
-                            <div class="flex gap-3"><i class="fa-solid fa-star text-orange-500 mt-1"></i><div><p class="text-sm font-semibold">Informasi Platform</p><p class="text-xs text-slate-500">Terima kasih telah menggunakan platform kami.</p></div></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex items-center gap-3"><div class="hidden sm:block text-right"><p class="text-sm font-bold text-slate-800">Rani Anggraini Ramadhani</p><p class="text-xs text-slate-400">Mahasiswa</p></div><div class="w-10 h-10 bg-blue-100 text-blue-700 rounded-full flex items-center justify-center font-bold">R</div></div>
+    <main class="flex-1 min-w-0">
+        <header class="bg-white border-b border-slate-200 px-5 md:px-8 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <button onclick="toggleSidebar()" class="md:hidden text-slate-600 text-xl"><i class="fas fa-bars"></i></button>
+                <div><p class="text-sm text-slate-400">Menu / Dashboard</p><h2 class="font-bold text-xl">Dashboard</h2></div>
+            </div>
+            <div class="hidden sm:flex items-center gap-3">
+                <div class="text-right"><p class="font-semibold text-sm">Rani Anggraini Ramadhani</p><p class="text-xs text-slate-500">Mahasiswa</p></div>
+                <div class="w-10 h-10 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center"><i class="fas fa-user"></i></div>
             </div>
         </header>
-
         <section class="p-5 md:p-8 max-w-7xl mx-auto">
-            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-5 mb-8">
-                <div><p class="text-sm text-blue-600 font-semibold mb-2"><span id="currentDate"></span></p><h1 class="text-2xl md:text-3xl font-extrabold text-slate-900">Halo, Rani! 👋</h1><p class="text-sm text-slate-500 mt-2">Siap menemukan peluang dan mengembangkan keahlianmu hari ini?</p></div>
-                <a href="freelance.html" class="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-5 py-3 rounded-xl text-sm font-semibold shadow-lg shadow-blue-600/20 transition"><i class="fa-solid fa-plus"></i>Jelajahi Freelance</a>
+            <div class="mb-7"><h2 class="text-2xl font-bold">Selamat Datang, Rani! 👋</h2><p class="text-sm text-slate-500 mt-2">Lihat ringkasan aktivitas Campus Freelancer hari ini.</p></div>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-7">
+                <div class="bg-white border rounded-2xl p-5"><div class="flex justify-between items-center"><div><p class="text-sm text-slate-500">Total Freelancer</p><h3 class="text-3xl font-bold mt-2">10</h3></div><div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center text-xl"><i class="fas fa-users"></i></div></div><a href="freelance.html" class="text-xs font-semibold text-blue-600 mt-4 block">Lihat Freelance →</a></div>
+                <div class="bg-white border rounded-2xl p-5"><div class="flex justify-between items-center"><div><p class="text-sm text-slate-500">Pesan Masuk</p><h3 class="text-3xl font-bold mt-2">3</h3></div><div class="w-12 h-12 bg-orange-50 text-orange-600 rounded-xl flex items-center justify-center text-xl"><i class="fas fa-inbox"></i></div></div><a href="pesan.html" class="text-xs font-semibold text-blue-600 mt-4 block">Lihat Pesan →</a></div>
+                <div class="bg-white border rounded-2xl p-5"><div class="flex justify-between items-center"><div><p class="text-sm text-slate-500">Lokasi Freelancer</p><h3 class="text-3xl font-bold mt-2">10</h3></div><div class="w-12 h-12 bg-green-50 text-green-600 rounded-xl flex items-center justify-center text-xl"><i class="fas fa-location-dot"></i></div></div><a href="peta.html" class="text-xs font-semibold text-blue-600 mt-4 block">Lihat Peta →</a></div>
             </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5 mb-8">
-                <div class="stat-card bg-white rounded-2xl p-5 border border-slate-100"><div class="flex items-center justify-between"><div class="w-11 h-11 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center"><i class="fa-solid fa-users text-lg"></i></div><span class="text-xs font-semibold text-green-600 bg-green-50 px-2 py-1 rounded-full">+12%</span></div><p class="text-sm text-slate-500 mt-5">Total Freelancer</p><h3 class="text-3xl font-extrabold mt-1">128</h3><p class="text-xs text-slate-400 mt-2">Mahasiswa terdaftar</p></div>
-                <div class="stat-card bg-white rounded-2xl p-5 border border-slate-100"><div class="flex items-center justify-between"><div class="w-11 h-11 bg-purple-50 text-purple-600 rounded-xl flex items-center justify-center"><i class="fa-solid fa-briefcase text-lg"></i></div><span class="text-xs font-semibold text-green-600 bg-green-50 px-2 py-1 rounded-full">+8%</span></div><p class="text-sm text-slate-500 mt-5">Jasa Tersedia</p><h3 class="text-3xl font-extrabold mt-1">86</h3><p class="text-xs text-slate-400 mt-2">Layanan aktif</p></div>
-                <div class="stat-card bg-white rounded-2xl p-5 border border-slate-100"><div class="flex items-center justify-between"><div class="w-11 h-11 bg-orange-50 text-orange-600 rounded-xl flex items-center justify-center"><i class="fa-solid fa-handshake text-lg"></i></div><span class="text-xs font-semibold text-green-600 bg-green-50 px-2 py-1 rounded-full">+15%</span></div><p class="text-sm text-slate-500 mt-5">Proyek Selesai</p><h3 class="text-3xl font-extrabold mt-1">245</h3><p class="text-xs text-slate-400 mt-2">Total pekerjaan selesai</p></div>
-                <div class="stat-card bg-white rounded-2xl p-5 border border-slate-100"><div class="flex items-center justify-between"><div class="w-11 h-11 bg-green-50 text-green-600 rounded-xl flex items-center justify-center"><i class="fa-solid fa-star text-lg"></i></div><span class="text-xs font-semibold text-green-600 bg-green-50 px-2 py-1 rounded-full">+0.3</span></div><p class="text-sm text-slate-500 mt-5">Rating Platform</p><h3 class="text-3xl font-extrabold mt-1">4.8</h3><p class="text-xs text-slate-400 mt-2">Dari 120 ulasan</p></div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="map-card"><h3 class="font-bold text-lg">Freelancer Terbaru</h3><p class="text-sm text-slate-500 mt-1 mb-4">3 freelancer baru bergabung.</p>
+                    <div class="space-y-3">
+                        <div class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold">N</div><div><p class="font-semibold text-sm">Nadia Amalia</p><p class="text-xs text-slate-500">Design • Dago</p></div><span class="ml-auto text-xs font-bold text-blue-600">Rp50.000</span></div>
+                        <div class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-green-100 text-green-600 flex items-center justify-center font-bold">A</div><div><p class="font-semibold text-sm">Ahmad Fauzan</p><p class="text-xs text-slate-500">Web Development • Cihampelas</p></div><span class="ml-auto text-xs font-bold text-blue-600">Rp150.000</span></div>
+                        <div class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center font-bold">S</div><div><p class="font-semibold text-sm">Salsa Putri</p><p class="text-xs text-slate-500">Writing • Buah Batu</p></div><span class="ml-auto text-xs font-bold text-blue-600">Rp35.000</span></div>
+                    </div>
+                </div>
+                <div class="map-card"><h3 class="font-bold text-lg">Menu Cepat</h3><p class="text-sm text-slate-500 mt-1 mb-4">Akses cepat ke fitur utama.</p>
+                    <div class="grid grid-cols-2 gap-3">
+                        <a href="freelance.html" class="border rounded-xl p-4 hover:border-blue-300 hover:bg-blue-50 transition"><i class="fas fa-briefcase text-blue-600 mb-2"></i><p class="font-semibold text-sm">Cari Freelance</p><p class="text-xs text-slate-500">Temukan jasa</p></a>
+                        <a href="peta.html" class="border rounded-xl p-4 hover:border-blue-300 hover:bg-blue-50 transition"><i class="fas fa-map-location-dot text-green-600 mb-2"></i><p class="font-semibold text-sm">Peta</p><p class="text-xs text-slate-500">Lokasi freelancer</p></a>
+                        <a href="kontak.html" class="border rounded-xl p-4 hover:border-blue-300 hover:bg-blue-50 transition"><i class="fas fa-envelope text-orange-600 mb-2"></i><p class="font-semibold text-sm">Kontak</p><p class="text-xs text-slate-500">Hubungi admin</p></a>
+                        <a href="pesan.html" class="border rounded-xl p-4 hover:border-blue-300 hover:bg-blue-50 transition"><i class="fas fa-inbox text-purple-600 mb-2"></i><p class="font-semibold text-sm">Pesan Masuk</p><p class="text-xs text-slate-500">3 pesan baru</p></a>
+                    </div>
+                </div>
             </div>
-
-            <div class="grid grid-cols-1 xl:grid-cols-3 gap-5 mb-8">
-                <div class="xl:col-span-2 bg-white rounded-2xl border border-slate-100 p-5 md:p-6"><div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-5"><div><h3 class="font-bold text-slate-800">Aktivitas Freelance</h3><p class="text-xs text-slate-400 mt-1">Statistik proyek selama enam bulan</p></div><span class="text-xs bg-blue-50 text-blue-700 px-3 py-2 rounded-lg font-semibold">Januari - Juni</span></div><div id="activityChart" class="w-full" style="height: 300px;"></div></div>
-                <div class="bg-white rounded-2xl border border-slate-100 p-5 md:p-6"><h3 class="font-bold text-slate-800">Kategori Keahlian</h3><p class="text-xs text-slate-400 mt-1 mb-5">Bidang jasa populer</p><div class="space-y-5"><div><div class="flex justify-between text-sm mb-2"><span class="font-medium">Graphic Design</span><span class="text-slate-500">35%</span></div><div class="w-full h-2 bg-slate-100 rounded-full"><div class="h-2 bg-blue-600 rounded-full" style="width:35%"></div></div></div><div><div class="flex justify-between text-sm mb-2"><span class="font-medium">Programming</span><span class="text-slate-500">25%</span></div><div class="w-full h-2 bg-slate-100 rounded-full"><div class="h-2 bg-purple-500 rounded-full" style="width:25%"></div></div></div><div><div class="flex justify-between text-sm mb-2"><span class="font-medium">Writing</span><span class="text-slate-500">20%</span></div><div class="w-full h-2 bg-slate-100 rounded-full"><div class="h-2 bg-orange-500 rounded-full" style="width:20%"></div></div></div><div><div class="flex justify-between text-sm mb-2"><span class="font-medium">Video Editing</span><span class="text-slate-500">20%</span></div><div class="w-full h-2 bg-slate-100 rounded-full"><div class="h-2 bg-green-500 rounded-full" style="width:20%"></div></div></div></div><a href="freelance.html" class="block text-center text-blue-600 text-sm font-semibold mt-8 hover:text-blue-800">Lihat Semua Kategori <i class="fa-solid fa-arrow-right ml-1"></i></a></div>
-            </div>
-
-            <div class="bg-white rounded-2xl border border-slate-100 p-5 md:p-6 mb-8">
-                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-6"><div><h3 class="font-bold text-slate-800">Freelancer Terbaru</h3><p class="text-xs text-slate-400 mt-1">Mahasiswa yang baru bergabung</p></div><a href="freelance.html" class="text-sm text-blue-600 font-semibold hover:text-blue-800">Lihat Semua <i class="fa-solid fa-arrow-right ml-1"></i></a></div>
-                <div class="overflow-x-auto"><table class="w-full text-sm text-left"><thead><tr class="text-xs uppercase text-slate-400 border-b border-slate-100"><th class="py-4 font-semibold">Freelancer</th><th class="py-4 font-semibold">Keahlian</th><th class="py-4 font-semibold">Harga Mulai</th><th class="py-4 font-semibold">Rating</th><th class="py-4 font-semibold">Status</th></tr></thead><tbody class="divide-y divide-slate-100">
-                    <tr class="hover:bg-slate-50"><td class="py-4"><div class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-purple-100 text-purple-700 flex items-center justify-center font-bold">NA</div><div><p class="font-semibold">Nadia Amalia</p><p class="text-xs text-slate-400">Dago</p></div></div></td><td class="py-4">Graphic Design</td><td class="py-4 font-semibold">Rp50.000</td><td class="py-4">⭐ 4.9</td><td class="py-4"><span class="text-xs bg-green-50 text-green-600 px-2 py-1 rounded-full font-semibold">Aktif</span></td></tr>
-                    <tr class="hover:bg-slate-50"><td class="py-4"><div class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-green-100 text-green-700 flex items-center justify-center font-bold">AF</div><div><p class="font-semibold">Ahmad Fauzan</p><p class="text-xs text-slate-400">Cihampelas</p></div></div></td><td class="py-4">Web Development</td><td class="py-4 font-semibold">Rp150.000</td><td class="py-4">⭐ 4.8</td><td class="py-4"><span class="text-xs bg-green-50 text-green-600 px-2 py-1 rounded-full font-semibold">Aktif</span></td></tr>
-                    <tr class="hover:bg-slate-50"><td class="py-4"><div class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-pink-100 text-pink-700 flex items-center justify-center font-bold">SP</div><div><p class="font-semibold">Salsa Putri</p><p class="text-xs text-slate-400">Buah Batu</p></div></div></td><td class="py-4">Content Writing</td><td class="py-4 font-semibold">Rp35.000</td><td class="py-4">⭐ 4.9</td><td class="py-4"><span class="text-xs bg-green-50 text-green-600 px-2 py-1 rounded-full font-semibold">Aktif</span></td></tr>
-                </tbody></table></div>
-            </div>
-            <p class="text-xs text-slate-400 text-center">© 2026 Campus Freelancer Network.</p>
+            <p class="text-xs text-slate-400 text-center mt-7">© 2026 Campus Freelancer Network.</p>
         </section>
     </main>
-
+</div>
 <script>
 function toggleSidebar(){
-    document.getElementById("sidebar").classList.toggle("show");
+    document.getElementById("sidebar").classList.toggle("-translate-x-full");
     document.getElementById("overlay").classList.toggle("hidden");
 }
-function showNotification(){
-    document.getElementById("notificationPanel").classList.toggle("hidden");
-}
-function markAllRead(){
-    document.getElementById("notificationBadge").style.display = "none";
-    document.getElementById("notificationPanel").classList.add("hidden");
-}
-document.getElementById("currentDate").textContent = new Date().toLocaleDateString("id-ID", { weekday: "long", day: "numeric", month: "long", year: "numeric" });
-document.addEventListener("click", function(e){
-    const panel = document.getElementById("notificationPanel");
-    if(panel && !e.target.closest(".relative")) panel.classList.add("hidden");
-});
-Highcharts.chart("activityChart", {
-    chart: { type: "column" },
-    title: { text: "" },
-    xAxis: { categories: ["Jan", "Feb", "Mar", "Apr", "Mei", "Jun"] },
-    yAxis: { title: { text: "Proyek" } },
-    series: [{ name: "Proyek Selesai", data: [12, 19, 25, 22, 30, 38], color: "#2563EB" }, { name: "Proyek Baru", data: [8, 14, 18, 20, 24, 28], color: "#93C5FD" }],
-    credits: { enabled: false }
-});
 </script>
 </body>
 </html>
