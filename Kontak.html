@@ -2,15 +2,21 @@
 <html lang="id">
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-widht,initial-scale=1.0">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
         <title>Kontak - Campus Freelance Network</title>
 
         <script src="https://cdn.tailwindcss.com"></script>
-        <link rel="stylesheet"
+        <link rel="stylesheet" 
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
         <link rel="stylesheet" href="css/kontak.css">
+        <style>
+            body { font-family: 'inter', sans-serif; bacground: #f8fafc; }
+            . sidebar-link { display: flex; align-items: center; gap: 12px; padding 12px 16px; border-radius: 10p; color: #64748; font-size: 14px; font-weight: 500; transition: .2s; }
+             .sidebar-link:hover, .sidebar-link.active { background: #eff6ff; color: #2563eb; font-weight: 600; }
+    .map-card { background: white; border: 1px solid #e2e8f0; border-radius: 16px; padding: 20px; }
+        </style>
      </head>
 
      <body class="text-slate-800">
@@ -18,7 +24,7 @@
         <div class="min-h-screen flex">
             
             <!-- OVERLAY MOBILE -->
-             <div id="overly"
+             <div id="overlay"
              onclik="toggleSidebar()"
              class="fixed inset-0 bg-black/40 z-40 hidden md:hidden">
             </div>
