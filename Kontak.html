@@ -45,48 +45,58 @@
             </button>
              </div>
              
-              <p class="text-xs font-bold text-slate-400 uppercase mb-3">
+              <p class="text-xs font-bold text-slate-400 uppercase mb-3 mt-6">
             Menu Utama
         </p>
 
-        <nav class="space-y-1">
+        <nav class="flex flex-col gap-2">
+    <a href="dashboard.html"
+       class="flex items-center gap-3 px-4 py-4 rounded-2xl text-slate-600 hover:bg-blue-50 hover:text-blue-600 transition">
+        <i class="fa-solid fa-house w-5"></i>
+        Dashboard
+    </a>
 
-            <a href="dashboard.html" class="sidebar-link">
-                <i class="fa-solid fa-house w-5"></i>
-                Dashboard
-            </a>
+    <a href="freelance.html"
+       class="flex items-center gap-3 px-4 py-4 rounded-2xl text-slate-600 hover:bg-blue-50 hover:text-blue-600 transition">
+        <i class="fa-solid fa-briefcase w-5"></i>
+        Freelance
+    </a>
 
-           <a href="freelance.html" class="sidebar-link">
-            <i class="fa-solid fa-briefcase w-5"></i>
-            Freelance
-           </a>
+    <a href="peta.html"
+       class="flex items-center gap-3 px-4 py-4 rounded-2xl text-slate-600 hover:bg-blue-50 hover:text-blue-600 transition">
+        <i class="fa-solid fa-map-location-dot w-5"></i>
+        Peta Freelancer
+    </a>
 
-           <a href="peta.html" class="sidebar-link">
-                <i class="fa-solid fa-map-location-dot w-5"></i>
-                Peta Freelancer
-            </a>
+</nav>
 
-            <a href="detail.html" class="sidebar-link active">
-                <i class="fa-solid fa-circle-info w-5"></i> Detail
-            </a>
-            
-            <a href="kontak.html"  class="sidebar-link active">
-                <i class="fa-regular fa-envelope w-5"></i>
-                Kontak
-            </a>
-            
-             <a href="pesan.html" class="sidebar-link">
-                <i class="fa-regular fa-message w-5"></i>
-                Pesan Masuk
-            </a>
+<!-- OTHERS -->
+<p class="text-sm font-bold text-slate-400 uppercase mb-4 mt-10">
+    OTHERS
+</p>
 
-            <a href="login.html" class="sidebar-link">
-                <i class="fa-solid fa-right-from-bracket w-5"></i>
-                Keluar
-            </a>
+<nav class="flex flex-col gap-2">
 
+    <a href="kontak.html"
+       class="flex items-center gap-3 px-4 py-4 rounded-2xl bg-blue-50 text-blue-600 font-semibold">
+        <i class="fa-solid fa-headset w-5"></i>
+        Kontak
+    </a>
 
-        </nav>
+    <a href="pesan.html"
+       class="flex items-center gap-3 px-4 py-4 rounded-2xl text-slate-600 hover:bg-blue-50 hover:text-blue-600 transition">
+        <i class="fa-solid fa-inbox w-5"></i>
+        Pesan Masuk
+    </a>
+
+    <a href="login.html"
+       class="flex items-center gap-3 px-4 py-4 rounded-2xl text-slate-600 hover:bg-blue-50 hover:text-blue-600 transition">
+        <i class="fa-solid fa-right-from-bracket w-5"></i>
+        Keluar
+    </a>
+
+</nav>
+    
 
         <div  class="mt-auto bg-blue-50 rounded-xl p-4">
             <p class="font-semibold text-sm text-blue-800">
@@ -349,9 +359,6 @@
     </main>
 
 </div>
-
-
-
 
     <script src="js/kontak.js"></script>
 </body>
