@@ -1,7 +1,7 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
+<<<<<<< HEAD
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -67,6 +67,8 @@ body { font-family: 'Inter', sans-serif; background: #f8fafc; }
                 <i class="fa-solid fa-inbox mr-2"></i> Pesan Masuk
             </a>
 
+=======
+>>>>>>> 71b479cf6b1fec7a4b14c58d0539484a129747c3
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kontak - Campus Freelancer</title>
@@ -81,6 +83,7 @@ body { font-family: 'Inter', sans-serif; background: #f8fafc; }
         .filter-input { width: 100%; border: 1px solid #e2e8f0; border-radius: 9px; padding: 11px 13px; outline: none; background: white; font-size: 14px; }
         .filter-input:focus { border-color: #3b82f6; box-shadow: 0 0 0 3px rgba(59,130,246,0.1); }
     </style>
+<<<<<<< HEAD
 
 <!-- </head> -->
 
@@ -89,6 +92,13 @@ body { font-family: 'Inter', sans-serif; background: #f8fafc; }
 </head>
 <body class="text-slate-800">
 
+=======
+<<<<<<< HEAD
+=======
+</head>
+<body class="text-slate-800">
+>>>>>>> 02353ede363326c6ef6eb74593185c28644069d0
+>>>>>>> 71b479cf6b1fec7a4b14c58d0539484a129747c3
 <div class="min-h-screen flex">
     <div id="overlay" onclick="toggleSidebar()" class="fixed inset-0 bg-black/40 z-40 hidden md:hidden"></div>
     <!-- SIDEBAR SAMA PERSIS KAYAK DASHBOARD -->
@@ -107,11 +117,15 @@ body { font-family: 'Inter', sans-serif; background: #f8fafc; }
             <a href="kontak.html" class="sidebar-link active"><i class="fas fa-envelope w-5"></i> Kontak</a>
             <a href="pesan.html" class="sidebar-link"><i class="fas fa-inbox w-5"></i> Pesan Masuk</a>
             <a href="login.html" class="sidebar-link"><i class="fas fa-right-from-bracket w-5"></i> Keluar</a>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 71b479cf6b1fec7a4b14c58d0539484a129747c3
         </nav>
         <div class="mt-auto bg-blue-50 rounded-xl p-4"><p class="font-semibold text-sm text-blue-800">Campus Freelancer</p><p class="text-xs text-blue-600 mt-1">Hubungkan bakat dengan peluang.</p></div>
     </aside>
 
+<<<<<<< HEAD
 
     <!-- MAIN CONTENT -->
     <main class="flex-1 p-6 md:p-10">
@@ -259,6 +273,8 @@ body { font-family: 'Inter', sans-serif; background: #f8fafc; }
     </section>
 </main>
 
+=======
+>>>>>>> 71b479cf6b1fec7a4b14c58d0539484a129747c3
     <main class="flex-1 min-w-0">
         <!-- HEADER SAMA KAYAK DASHBOARD -->
         <header class="bg-white border-b border-slate-200 px-5 md:px-8 py-4 flex justify-between items-center">
@@ -267,8 +283,13 @@ body { font-family: 'Inter', sans-serif; background: #f8fafc; }
                 <div><p class="text-sm text-slate-400">Menu / Kontak</p><h2 class="font-bold text-xl text-slate-800">Kontak</h2></div>
             </div>
             <div class="hidden sm:flex items-center gap-3">
+<<<<<<< HEAD
+                <div class="text-right"><p class="font-semibold text-sm text-slate-800">Yundira Putri Andini</p><p class="text-xs text-slate-500">Mahasiswa</p></div>
+                <div class="w-10 h-10 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold">Y</div>
+=======
                 <div class="text-right"><p class="font-semibold text-sm text-slate-800">Rani Anggraini Ramadhani</p><p class="text-xs text-slate-500">Mahasiswa</p></div>
                 <div class="w-10 h-10 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold">R</div>
+>>>>>>> 02353ede363326c6ef6eb74593185c28644069d0
             </div>
         </header>
 
@@ -308,6 +329,7 @@ body { font-family: 'Inter', sans-serif; background: #f8fafc; }
             <p class="text-xs text-slate-400 text-center mt-7">© 2026 Campus Freelancer Network.</p>
         </section>
     </main>
+<<<<<<< HEAD
 
 </div>
 <script>
@@ -316,13 +338,20 @@ document.getElementById("contactForm").addEventListener("submit", function(e) {
     e.preventDefault();
 
 
+=======
+</div>
+<script>
+>>>>>>> 71b479cf6b1fec7a4b14c58d0539484a129747c3
 function toggleSidebar(){
     document.getElementById("sidebar").classList.toggle("-translate-x-full");
     document.getElementById("overlay").classList.toggle("hidden");
 }
 document.getElementById("contactForm").addEventListener("submit", function(e) {
     e.preventDefault();
+<<<<<<< HEAD
 
+=======
+>>>>>>> 71b479cf6b1fec7a4b14c58d0539484a129747c3
     const pesanBaru = {
         nama: document.getElementById("contactName").value.trim(),
         email: document.getElementById("contactEmail").value.trim(),
@@ -331,6 +360,7 @@ document.getElementById("contactForm").addEventListener("submit", function(e) {
         tanggal: new Date().toLocaleString("id-ID"),
         dibaca: false
     };
+<<<<<<< HEAD
 
 
     let daftarPesan = JSON.parse(localStorage.getItem("pesanMasuk")) || [];
@@ -341,13 +371,18 @@ document.getElementById("contactForm").addEventListener("submit", function(e) {
     document.getElementById("successMessage").classList.remove("hidden");
     this.reset();
 
+=======
+>>>>>>> 71b479cf6b1fec7a4b14c58d0539484a129747c3
     let daftarPesan = JSON.parse(localStorage.getItem("pesanMasuk")) || [];
     daftarPesan.push(pesanBaru);
     localStorage.setItem("pesanMasuk", JSON.stringify(daftarPesan));
     document.getElementById("successMessage").classList.remove("hidden");
     this.reset();
     setTimeout(function() { window.location.href = "pesan.html"; }, 1000);
+<<<<<<< HEAD
  
+=======
+>>>>>>> 71b479cf6b1fec7a4b14c58d0539484a129747c3
 });
 </script>
 </body>
