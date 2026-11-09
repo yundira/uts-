@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
+<<<<<<< HEAD
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kontak | Campus Freelancer Network</title>
@@ -65,9 +66,53 @@ body { font-family: 'Inter', sans-serif; background: #f8fafc; }
             <a href="pesan.html" class="block p-3 rounded-lg hover:bg-slate-700">
                 <i class="fa-solid fa-inbox mr-2"></i> Pesan Masuk
             </a>
+=======
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontak - Campus Freelancer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background: #f8fafc; }
+        .sidebar-link { display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-radius: 10px; color: #64748b; font-size: 14px; font-weight: 500; transition: .2s; }
+        .sidebar-link:hover, .sidebar-link.active { background: #eff6ff; color: #2563eb; font-weight: 600; }
+        .map-card { background: white; border: 1px solid #e2e8f0; border-radius: 16px; padding: 20px; }
+        .filter-input { width: 100%; border: 1px solid #e2e8f0; border-radius: 9px; padding: 11px 13px; outline: none; background: white; font-size: 14px; }
+        .filter-input:focus { border-color: #3b82f6; box-shadow: 0 0 0 3px rgba(59,130,246,0.1); }
+    </style>
+<<<<<<< HEAD
+<!-- </head> -->
+
+<body class="text-gray-800">
+=======
+</head>
+<body class="text-slate-800">
+>>>>>>> be659249de8313b977fd5f93165319e9736de84a
+<div class="min-h-screen flex">
+    <div id="overlay" onclick="toggleSidebar()" class="fixed inset-0 bg-black/40 z-40 hidden md:hidden"></div>
+    <!-- SIDEBAR SAMA PERSIS KAYAK DASHBOARD -->
+    <aside id="sidebar" class="fixed md:sticky top-0 left-0 z-50 w-64 h-screen bg-white border-r border-slate-200 flex flex-col p-5 -translate-x-full md:translate-x-0">
+        <div class="flex items-center gap-3 mb-9">
+            <div class="bg-blue-600 text-white w-10 h-10 rounded-xl flex items-center justify-center"><i class="fas fa-graduation-cap"></i></div>
+            <div><h1 class="font-extrabold text-lg">Campus<span class="text-blue-600">Freelance</span></h1><p class="text-xs text-slate-400">Network Platform</p></div>
+            <button onclick="toggleSidebar()" class="ml-auto md:hidden text-slate-500 text-xl"><i class="fas fa-xmark"></i></button>
+        </div>
+        <p class="text-xs font-bold text-slate-400 uppercase mb-3">Menu Utama</p>
+        <nav class="space-y-1">
+            <a href="dashboard.html" class="sidebar-link"><i class="fas fa-house w-5"></i> Dashboard</a>
+            <a href="freelance.html" class="sidebar-link"><i class="fas fa-briefcase w-5"></i> Freelance</a>
+            <a href="detail.html" class="sidebar-link"><i class="fas fa-id-card w-5"></i> Detail Freelancer</a>
+            <a href="peta.html" class="sidebar-link"><i class="fas fa-map-location-dot w-5"></i> Peta Freelancer</a>
+            <a href="kontak.html" class="sidebar-link active"><i class="fas fa-envelope w-5"></i> Kontak</a>
+            <a href="pesan.html" class="sidebar-link"><i class="fas fa-inbox w-5"></i> Pesan Masuk</a>
+            <a href="login.html" class="sidebar-link"><i class="fas fa-right-from-bracket w-5"></i> Keluar</a>
+>>>>>>> 01e49dedec73f930db7484fee1ae98409065d4c3
         </nav>
+        <div class="mt-auto bg-blue-50 rounded-xl p-4"><p class="font-semibold text-sm text-blue-800">Campus Freelancer</p><p class="text-xs text-blue-600 mt-1">Hubungkan bakat dengan peluang.</p></div>
     </aside>
 
+<<<<<<< HEAD
     <!-- MAIN CONTENT -->
     <main class="flex-1 p-6 md:p-10">
 
@@ -213,12 +258,71 @@ body { font-family: 'Inter', sans-serif; background: #f8fafc; }
 
     </section>
 </main>
-</div>
+=======
+    <main class="flex-1 min-w-0">
+        <!-- HEADER SAMA KAYAK DASHBOARD -->
+        <header class="bg-white border-b border-slate-200 px-5 md:px-8 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <button onclick="toggleSidebar()" class="md:hidden text-slate-600 text-xl"><i class="fas fa-bars"></i></button>
+                <div><p class="text-sm text-slate-400">Menu / Kontak</p><h2 class="font-bold text-xl text-slate-800">Kontak</h2></div>
+            </div>
+            <div class="hidden sm:flex items-center gap-3">
+                <div class="text-right"><p class="font-semibold text-sm text-slate-800">Rani Anggraini Ramadhani</p><p class="text-xs text-slate-500">Mahasiswa</p></div>
+                <div class="w-10 h-10 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold">R</div>
+            </div>
+        </header>
 
+        <section class="p-5 md:p-8 max-w-7xl mx-auto">
+            <div class="mb-7">
+                <h2 class="text-2xl font-bold text-slate-800">Hubungi Kami</h2>
+                <p class="text-sm text-slate-500 mt-2">Kirim pertanyaan, kritik, atau saran kepada Campus Freelancer Network.</p>
+            </div>
+
+            <div class="map-card max-w-3xl">
+                <div id="successMessage" class="hidden mb-6 p-4 bg-green-100 text-green-700 rounded-lg text-sm font-medium">
+                    <i class="fa-solid fa-circle-check mr-2"></i> Pesan berhasil dikirim! Mengalihkan ke Pesan Masuk...
+                </div>
+
+                <form id="contactForm" class="space-y-5">
+                    <div>
+                        <label class="block font-semibold text-sm mb-2">Nama Lengkap</label>
+                        <input type="text" id="contactName" required placeholder="Masukkan nama lengkap" class="filter-input">
+                    </div>
+                    <div>
+                        <label class="block font-semibold text-sm mb-2">Email</label>
+                        <input type="email" id="contactEmail" required placeholder="Masukkan email" class="filter-input">
+                    </div>
+                    <div>
+                        <label class="block font-semibold text-sm mb-2">Subjek</label>
+                        <input type="text" id="contactSubject" required placeholder="Masukkan subjek pesan" class="filter-input">
+                    </div>
+                    <div>
+                        <label class="block font-semibold text-sm mb-2">Pesan</label>
+                        <textarea id="contactMessage" rows="5" required placeholder="Tuliskan pesan atau saran..." class="filter-input"></textarea>
+                    </div>
+                    <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg text-sm">
+                        <i class="fa-solid fa-paper-plane mr-2"></i> Kirim Pesan
+                    </button>
+                </form>
+            </div>
+            <p class="text-xs text-slate-400 text-center mt-7">© 2026 Campus Freelancer Network.</p>
+        </section>
+    </main>
+>>>>>>> 01e49dedec73f930db7484fee1ae98409065d4c3
+</div>
 <script>
+<<<<<<< HEAD
 document.getElementById("contactForm").addEventListener("submit", function(e) {
     e.preventDefault();
 
+=======
+function toggleSidebar(){
+    document.getElementById("sidebar").classList.toggle("-translate-x-full");
+    document.getElementById("overlay").classList.toggle("hidden");
+}
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+>>>>>>> 01e49dedec73f930db7484fee1ae98409065d4c3
     const pesanBaru = {
         nama: document.getElementById("contactName").value.trim(),
         email: document.getElementById("contactEmail").value.trim(),
@@ -227,6 +331,7 @@ document.getElementById("contactForm").addEventListener("submit", function(e) {
         tanggal: new Date().toLocaleString("id-ID"),
         dibaca: false
     };
+<<<<<<< HEAD
 
     let daftarPesan = JSON.parse(localStorage.getItem("pesanMasuk")) || [];
     daftarPesan.push(pesanBaru);
@@ -235,8 +340,15 @@ document.getElementById("contactForm").addEventListener("submit", function(e) {
 
     document.getElementById("successMessage").classList.remove("hidden");
     this.reset();
+=======
+    let daftarPesan = JSON.parse(localStorage.getItem("pesanMasuk")) || [];
+    daftarPesan.push(pesanBaru);
+    localStorage.setItem("pesanMasuk", JSON.stringify(daftarPesan));
+    document.getElementById("successMessage").classList.remove("hidden");
+    this.reset();
+    setTimeout(function() { window.location.href = "pesan.html"; }, 1000);
+>>>>>>> 01e49dedec73f930db7484fee1ae98409065d4c3
 });
 </script>
-
 </body>
 </html>
